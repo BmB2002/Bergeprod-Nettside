@@ -1,6 +1,5 @@
 "use client";
 
-import FallbackImage from "./FallbackImage";
 import { motion } from "framer-motion";
 import { useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -18,10 +17,12 @@ export default function Hero() {
     >
       {/* Background media with parallax */}
       <motion.div style={{ y }} className="absolute inset-0 h-full w-full">
-        <FallbackImage
-          src="/homevideo.gif"
-          alt=""
-          ariaHidden
+        <video
+          src="/homevideo.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
           className="h-full w-full object-cover"
         />
       </motion.div>

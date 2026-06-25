@@ -29,3 +29,4 @@ next-env.d.ts
 # vercel
 .vercel
 public/homevideo.gif
+public/homevideo-original.mp4
