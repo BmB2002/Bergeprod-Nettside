@@ -19,11 +19,10 @@ export default function About() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
           <div className="md:col-span-5">
             <SectionHeading label="Om" title="Bjørn Magnus Berge." />
-            {/* Drop a portrait at /public/portrait.jpg */}
             <Reveal className="mt-8" delay={120}>
               <div className="aspect-[4/5] w-full overflow-hidden rounded-lg bg-ink-soft">
                 <FallbackImage
-                  src="/portrait.jpg"
+                  src="/me.jpg"
                   alt="Bjørn Magnus Berge"
                   className="h-full w-full object-cover"
                 />
@@ -47,7 +46,7 @@ export default function About() {
                   endelige filmen føles gjennomtenkt i hver eneste ramme.
                 </p>
                 <p>
-                  Basert i Norge, tilgjengelig verden over. La oss lage noe
+                  Basert i Norge, tilgjengelig over hele landet. La oss lage noe
                   verdt å se.
                 </p>
               </div>

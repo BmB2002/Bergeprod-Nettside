@@ -6,11 +6,9 @@ import Reveal from "./Reveal";
 const EMAIL = "kontakt.bergemedia@gmail.com";
 
 const socials = [
-  { label: "Instagram", href: "https://instagram.com/" },
-  { label: "Vimeo", href: "https://vimeo.com/" },
-  { label: "YouTube", href: "https://youtube.com/" },
-  { label: "LinkedIn", href: "https://linkedin.com/" },
-]; // Note: social names remain in English as they are brand names
+  { label: "Instagram", href: "https://instagram.com/bm.berge" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/bj%C3%B8rn-magnus-berge-47a197279/" },
+];
 
 export default function Contact() {
   return (
@@ -57,7 +55,7 @@ export default function Contact() {
             viewport={{ once: true }}
           >
             <p className="label mb-3">Basert i</p>
-            <p className="text-lg text-white">Norge — tilgjengelig verden over</p>
+            <p className="text-lg text-white">Norge — tilgjengelig over hele landet</p>
           </motion.div>
 
           <motion.div

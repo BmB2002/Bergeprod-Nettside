@@ -139,6 +139,9 @@ function RegularRow({
         {project.title}
       </h3>
       {project.client && <p className="text-xs text-white/45">{project.client}</p>}
+      {project.description && (
+        <p className="mt-1 text-xs leading-relaxed text-white/35">{project.description}</p>
+      )}
       <p className="text-xs text-mute">{project.year}</p>
     </div>
   );
@@ -179,11 +182,11 @@ export default function Work() {
   return (
     <section id="work" className="border-t border-line py-24 md:py-32">
       <div className="mx-auto max-w-5xl px-6 md:px-10">
-        <SectionHeading label="Utvalgte arbeider" title="Historier fortalt i bevegelse." />
+        <SectionHeading label="Utvalgte filmer" title="Historier fortalt i bevegelse." />
 
         <Reveal className="mt-10">
           <div className="flex flex-wrap gap-2">
-            {filters.map((f, i) => (
+            {filters.map((f) => (
               <motion.button
                 key={f}
                 onClick={() => setActive(f)}
@@ -192,9 +195,6 @@ export default function Work() {
                     ? "border-white bg-white text-ink"
                     : "border-line text-mute hover:border-white/40 hover:text-white"
                 }`}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >

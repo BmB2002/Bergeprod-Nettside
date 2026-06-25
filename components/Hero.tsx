@@ -44,7 +44,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          Filmskaper · Videograf
+          Filmskaper | Klipper | Videograf
         </motion.p>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <motion.img
