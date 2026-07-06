@@ -75,7 +75,7 @@ export default function Hero() {
             whileHover={{ scale: 1.08, boxShadow: "0 10px 25px rgba(0,0,0,0.3)" }}
             whileTap={{ scale: 0.98 }}
           >
-            Se arbeider
+            Se filmer
           </motion.a>
           <motion.a
             href="#contact"

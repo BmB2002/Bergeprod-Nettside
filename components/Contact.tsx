@@ -15,14 +15,14 @@ export default function Contact() {
     <section id="contact" className="border-t border-line py-24 md:py-40">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <Reveal>
-          <p className="label mb-6">Kontakt</p>
+          <p className="text-[clamp(3rem,7vw,6rem)] font-black leading-none tracking-tighter text-white">
+            KONTAKT
+          </p>
           <a
             href={`mailto:${EMAIL}`}
-            className="block text-balance text-4xl font-semibold leading-[1.05] tracking-tight text-white transition-colors hover:text-white/60 sm:text-6xl md:text-7xl"
+            className="mt-4 block text-balance text-base font-medium leading-snug text-white/60 transition-colors hover:text-white/90 md:text-lg"
           >
-            La oss lage
-            <br />
-            noe sammen.
+            La oss lage noe sammen.
           </a>
         </Reveal>
 

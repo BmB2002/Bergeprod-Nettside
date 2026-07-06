@@ -34,20 +34,16 @@ export default function About() {
             <Reveal delay={80}>
               <div className="space-y-6 text-lg leading-relaxed text-white/70">
                 <p>
-                  Jeg er en filmskaper og videograf som jobber under navnet{" "}
-                  <span className="text-white">BERGE</span>. Fra intime
-                  dokumentarer til dristige kommersielle filmer hjelper jeg
-                  mennesker og merker å fortelle historier som berører.
+                  Jeg er filmskaper og videograf under navnet{" "}
+                  <span className="text-white">BERGE</span>. Jeg lager alt fra
+                  kortfilm til kommersielle filmer for folk og bedrifter.
                 </p>
                 <p>
-                  Hvert prosjekt starter med et spørsmål — hvilket følelse
-                  ønsker vi å etterlate oss? Derfra håndterer jeg håndverket
-                  fra ende til ende: konsept, filming og klipping, slik at den
-                  endelige filmen føles gjennomtenkt i hver eneste ramme.
+                  Jeg tar hånd om hele prosessen — fra idé til ferdig film.
+                  Konsept, filming og klipping.
                 </p>
                 <p>
-                  Basert i Norge, tilgjengelig over hele landet. La oss lage noe
-                  verdt å se.
+                  Basert i Norge, tilgjengelig over hele landet.
                 </p>
               </div>
             </Reveal>
