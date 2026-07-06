@@ -22,7 +22,7 @@ export default function About() {
             <Reveal className="mt-8" delay={120}>
               <div className="aspect-[4/5] w-full overflow-hidden rounded-lg bg-ink-soft">
                 <FallbackImage
-                  src="/me.jpg"
+                  src="/me.JPG"
                   alt="Bjørn Magnus Berge"
                   className="h-full w-full object-cover"
                 />
