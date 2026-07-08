@@ -61,7 +61,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.7 }}
         >
-          Skaperisk film &amp; video av Bjørn Magnus Berge.
+          Visuell historiefortelling av Bjørn Magnus Berge.
         </motion.p>
         <motion.div
           className="mt-10 flex items-center justify-center gap-4"

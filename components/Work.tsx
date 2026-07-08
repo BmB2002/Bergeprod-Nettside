@@ -51,7 +51,7 @@ function Thumb({
       {project.youtubeId && autoplay && (
         <iframe
           className="absolute inset-0 h-full w-full pointer-events-none"
-          src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${project.youtubeId}&modestbranding=1&rel=0&iv_load_policy=3`}
+          src={`https://www.youtube.com/embed/${project.youtubeId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${project.youtubeId}&modestbranding=1&rel=0&iv_load_policy=3&cc_load_policy=0`}
           allow="autoplay; encrypted-media"
           onLoad={() => setTimeout(() => setReady(true), 1000)}
         />
