@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const links = [
   { label: "Filmer", href: "#work" },
@@ -49,6 +50,14 @@ export default function Nav() {
               </a>
             </li>
           ))}
+          <li>
+            <Link
+              href="/cv"
+              className="rounded-full border border-white/20 px-4 py-1.5 text-sm text-white/70 transition-all hover:border-white/50 hover:text-white"
+            >
+              CV
+            </Link>
+          </li>
         </ul>
 
         <button
@@ -95,6 +104,11 @@ export default function Nav() {
               </a>
             </li>
           ))}
+          <li>
+            <Link href="/cv" onClick={() => setOpen(false)} className="block py-3 text-base text-mute transition-colors hover:text-white">
+              CV
+            </Link>
+          </li>
         </ul>
       </div>
     </header>

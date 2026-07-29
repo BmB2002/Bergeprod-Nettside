@@ -45,9 +45,11 @@ export const projects: Project[] = [
   },
   {
     title: "Hornindal Rundt 2026",
+    client: "OCLIN",
     year: "2026",
     category: "Promo",
     youtubeId: "eduXzrgCcwQ",
+    description: "Promo video for Hornindal Rundt gjennom OCLIN. Filmet og redigert av Bjørn Magnus Berge.",
   },
   {
     title: "HALLEN",
