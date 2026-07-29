@@ -31,7 +31,7 @@ export default function Services() {
   return (
     <section id="services" className="border-t border-line py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <SectionHeading label="Tjenester" title="Det jeg gjør bak linsen." />
+        <SectionHeading label="Tjenester" title="Hva jeg kan tilby." />
 
         <motion.div
           className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-line bg-line md:grid-cols-2"

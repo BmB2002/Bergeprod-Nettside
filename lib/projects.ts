@@ -44,11 +44,10 @@ export const projects: Project[] = [
     description: "En kort holdningskampanje om mental helse laget for Mental Helse Norge.",
   },
   {
-    title: "BREHEIMEN",
-    year: "2025",
-    category: "Kortfilm",
-    youtubeId: "bG11gaLaUZI",
-    description: "Naturfilm produsert for Breheimsenteret om landskapet og naturopplevelsene i Breheimen. I dette prosjektet hadde jeg rollen som filmfotograf, med ansvar for det visuelle uttrykket og fotograferingen.",
+    title: "Hornindal Rundt 2026",
+    year: "2026",
+    category: "Promo",
+    youtubeId: "eduXzrgCcwQ",
   },
   {
     title: "HALLEN",
@@ -68,11 +67,11 @@ export const projects: Project[] = [
     description: "En promo video for nye lærlinger i Sølvtrans hvor de reiser til Sandsøya.",
   },
   {
-    title: "Søvik",
+    title: "BREHEIMEN",
     year: "2025",
-    category: "Dokumentar",
-    youtubeId: "3G1TkbNlgFU",
-    description: "Dokumentar om malerkunstneren Ragnhild Søvik, med fokus på hennes kunstneriske prosess og hverdagsliv. Jeg hadde rollen som fotograf og stod for filmens visuelle uttrykk.",
+    category: "Kortfilm",
+    youtubeId: "bG11gaLaUZI",
+    description: "Naturfilm produsert for Breheimsenteret om landskapet og naturopplevelsene i Breheimen. I dette prosjektet hadde jeg rollen som filmfotograf, med ansvar for det visuelle uttrykket og fotograferingen.",
   },
   {
     title: "XPENG Winter Test",
@@ -127,6 +126,14 @@ export const projects: Project[] = [
     year: "2026",
     category: "Bedrift",
     youtubeId: "jqhqT9t_E5o",
+  },
+  {
+    title: "Søvik",
+    year: "2025",
+    category: "Dokumentar",
+    youtubeId: "3G1TkbNlgFU",
+    featured: true,
+    description: "Dokumentar om malerkunstneren Ragnhild Søvik, med fokus på hennes kunstneriske prosess og hverdagsliv. Jeg hadde rollen som fotograf og stod for filmens visuelle uttrykk.",
   },
   {
     title: "BUA Samlefilm",
