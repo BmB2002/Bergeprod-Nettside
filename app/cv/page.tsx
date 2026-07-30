@@ -129,14 +129,14 @@ export default function CV() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative flex flex-col items-center gap-7"
+            className="relative flex flex-col items-center gap-5"
           >
             {/* Portrait */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="h-36 w-36 overflow-hidden rounded-full border border-white/20 md:h-44 md:w-44"
+              className="h-24 w-24 overflow-hidden rounded-full border border-white/20 md:h-40 md:w-40"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/me.JPG" alt="Bjørn Magnus Berge" className="h-full w-full object-cover" />
@@ -148,7 +148,7 @@ export default function CV() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.25 }}
-                className="text-5xl font-black tracking-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)] md:text-7xl"
+                className="text-3xl font-black tracking-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)] sm:text-5xl md:text-7xl"
               >
                 Bjørn Magnus Berge
               </motion.h1>
@@ -156,7 +156,7 @@ export default function CV() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="mt-4 text-sm font-medium uppercase tracking-[0.35em] text-white/60"
+                className="mt-2 text-[10px] font-medium uppercase tracking-[0.25em] text-white/60 sm:text-sm sm:tracking-[0.35em]"
               >
                 Filmskaper&nbsp;&nbsp;·&nbsp;&nbsp;Klipper&nbsp;&nbsp;·&nbsp;&nbsp;Videograf
               </motion.p>
@@ -167,7 +167,7 @@ export default function CV() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.55 }}
-              className="max-w-lg text-base leading-relaxed text-white/55"
+              className="max-w-lg text-sm leading-relaxed text-white/55 md:text-base"
             >
               Jeg er filmskaper og videograf under navnet BERGE. Jeg lager alt fra kortfilm til kommersielle filmer for folk og bedrifter — og tar hånd om hele prosessen fra idé til ferdig film.
             </motion.p>
