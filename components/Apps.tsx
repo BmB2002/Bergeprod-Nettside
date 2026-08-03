@@ -8,12 +8,12 @@ const app = {
   description: "Dønk er en festapp tilgjengelig på både App Store og Google Play. Appen er laget for å gjøre fester morsommere og mer engasjerende — og har blitt en suksess i Norge.",
   appStoreUrl: "https://apps.apple.com/no/app/d%C3%B8nk/id6762613600?l=nb",
   googlePlayUrl: "https://play.google.com/store/apps/details?id=com.bjorn.dronk",
-  screenshots: ["/donk1.PNG", "/donk2.jpg", "/donk3.jpg"],
+  screenshots: ["/donk1.PNG", "/donk2.jpg"],
 };
 
 function PhoneFrame({ image }: { image: string | null }) {
   return (
-    <div className="relative w-36 shrink-0 overflow-hidden rounded-[2rem] border border-white/15 bg-ink-soft shadow-2xl md:w-44">
+    <div className="relative w-44 shrink-0 overflow-hidden rounded-[2rem] border border-white/15 bg-ink-soft shadow-2xl md:w-56">
       {/* Phone notch */}
       <div className="flex justify-center py-2">
         <div className="h-1.5 w-12 rounded-full bg-white/15" />
@@ -115,11 +115,13 @@ export default function Apps() {
 
           {/* Right: phone screenshots */}
           <Reveal delay={100}>
-            <div className="flex items-end justify-center gap-4 md:gap-6">
+            <div className="flex items-end justify-center gap-6 md:gap-8">
               {app.screenshots.map((img, i) => (
                 <div
                   key={i}
-                  style={{ transform: i === 1 ? "translateY(-24px)" : "none" }}
+                  style={{
+                    transform: `rotate(6deg) translateY(${i === 1 ? -28 : 0}px)`,
+                  }}
                 >
                   <PhoneFrame image={img} />
                 </div>
