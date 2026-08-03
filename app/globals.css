@@ -46,9 +46,19 @@ section {
   position: relative;
 }
 
-section + section {
-  border-top: 1px solid var(--color-line);
+/* Centered half-width dividers between sections (opt-in per page) */
+.section-dividers section + section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-line);
 }
+
 
 @keyframes marquee {
   from { transform: translateX(0); }
