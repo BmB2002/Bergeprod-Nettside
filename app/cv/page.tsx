@@ -13,10 +13,6 @@ const skillGroups = [
     items: ["Klipping & Post", "Fargekorrigering", "Motion Graphics", "Adobe Premiere Pro", "DaVinci Resolve", "Photoshop"],
   },
   {
-    category: "Design & Utvikling",
-    items: ["UI/UX Design", "Web Development", "React & Next.js", "App Development", "Tailwind CSS", "TypeScript"],
-  },
-  {
     category: "AI & Verktøy",
     items: ["AI-assistert utvikling", "ChatGPT", "Claude", "AI-optialisering", "Automation"],
   },
@@ -28,11 +24,11 @@ const skillGroups = [
 
 const experience = [
   {
-    title: "Freelance Filmskaper, Webdesigner & Apputvikler",
+    title: "Freelance Filmskaper & Videograf",
     company: "BERGE",
     years: "2024 – nå",
     description:
-      "Produserer film, video, nettsider og mobilapper for bedrifter og privatpersoner over hele Norge. Har designet og utviklet nettsider som donkapp.no, samt mobilapper som Dønk (tilgjengelig på App Store og Google Play). Filmkunder inkluderer OCLIN, Sølvtrans, Brannvernforeningen, Mental Helse Norge og Hexagon Purus.",
+      "Produserer film og video for bedrifter og privatpersoner over hele Norge. Kunder inkluderer OCLIN, Sølvtrans, Brannvernforeningen, Mental Helse Norge, Hexagon Purus og flere.",
   },
   {
     title: "Filmskaper & Klipper",
@@ -167,7 +163,7 @@ export default function CV() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="mt-2 text-[10px] font-medium uppercase tracking-[0.25em] text-white/60 sm:text-sm sm:tracking-[0.35em]"
               >
-                Filmskaper&nbsp;&nbsp;·&nbsp;&nbsp;Klipper&nbsp;&nbsp;·&nbsp;&nbsp;Webdesigner&nbsp;&nbsp;·&nbsp;&nbsp;Apputvikler
+                Filmskaper&nbsp;&nbsp;·&nbsp;&nbsp;Klipper
               </motion.p>
             </div>
 
@@ -178,7 +174,7 @@ export default function CV() {
               transition={{ duration: 0.6, delay: 0.55 }}
               className="max-w-lg text-sm leading-relaxed text-white/55 md:text-base"
             >
-              Jeg er filmskaper, klipper, webdesigner og apputvikler under navnet BERGE. Jeg lager alt fra kortfilm til kommersielle filmer, moderne nettsider og mobilapper — og tar hånd om hele prosessen fra idé til ferdig produkt.
+              Jeg er filmskaper og videograf under navnet BERGE. Jeg lager alt fra kortfilm til kommersielle filmer for folk og bedrifter — og tar hånd om hele prosessen fra idé til ferdig film.
             </motion.p>
           </motion.div>
 
@@ -319,7 +315,7 @@ export default function CV() {
         {/* ── Portfolio CTA ── */}
         <section className="py-24">
           <div className="mx-auto max-w-5xl px-6 md:px-10">
-            <div className="grid gap-6 lg:grid-cols-2 auto-rows-fr">
+            <div className="grid gap-6">
               {/* Films */}
               <Fade>
                 <motion.div
@@ -364,64 +360,6 @@ export default function CV() {
                       </svg>
                       Se filmer
                     </Link>
-                  </div>
-                </motion.div>
-              </Fade>
-
-              {/* Web & Apps Combined */}
-              <Fade delay={0.1}>
-                <motion.div
-                  whileHover={{
-                    y: -12,
-                    boxShadow: "0 0 0 1px rgba(255,255,255,0.15), 0 20px 60px -20px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.1)"
-                  }}
-                  className="relative overflow-hidden rounded-2xl h-full flex flex-col justify-center transition-all duration-300"
-                  style={{
-                    border: "1px solid rgba(255,255,255,0.1)",
-                    boxShadow: "0 0 0 1px rgba(255,255,255,0.08), 0 10px 40px -15px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05)"
-                  }}
-                >
-                  {/* 3D layer effect */}
-                  <div className="absolute inset-0 rounded-2xl border border-white/5" style={{ top: "2px", left: "2px", right: "4px", bottom: "4px" }} />
-                  <div className="absolute inset-0 rounded-2xl border border-white/3" style={{ top: "4px", left: "4px", right: "6px", bottom: "6px" }} />
-                  {/* Web screenshot background */}
-                  <div className="absolute inset-0 opacity-30">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/donkweb.png" alt="" className="h-full w-full object-cover" />
-                  </div>
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a]/95 via-[#0a0a0a]/80 to-[#0a0a0a]/95" />
-
-                  <div className="relative z-10 px-10 py-16 text-center md:py-24">
-                    <p style={label} className="mb-6">Portfolio</p>
-                    <p className="text-[clamp(2rem,6vw,4rem)] font-black leading-none tracking-tighter text-white">
-                      Web & App.
-                    </p>
-                    <p className="mx-auto mt-6 max-w-sm text-sm leading-relaxed text-white/45">
-                      Moderne nettsider og iOS/Android-løsninger.
-                    </p>
-                    <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4">
-                      <Link
-                        href="/#web"
-                        className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3 text-xs font-semibold uppercase tracking-widest text-[#0a0a0a] transition-all hover:bg-white/90"
-                      >
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <rect x="3" y="3" width="18" height="18" rx="2" />
-                          <path d="M3 9h18M9 21V9" />
-                        </svg>
-                        Webutvikling
-                      </Link>
-                      <Link
-                        href="/#apps"
-                        className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3 text-xs font-semibold uppercase tracking-widest text-[#0a0a0a] transition-all hover:bg-white/90"
-                      >
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <rect x="5" y="2" width="14" height="20" rx="2" />
-                          <line x1="12" y1="18" x2="12" y2="18.01" />
-                        </svg>
-                        Apputvikling
-                      </Link>
-                    </div>
                   </div>
                 </motion.div>
               </Fade>

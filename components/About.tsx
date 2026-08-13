@@ -10,8 +10,6 @@ const stats = [
   { value: "Kommersiell", label: "Merke- & produktfilmer" },
   { value: "Kortfilm", label: "Narrativ & kunst" },
   { value: "Bedrift", label: "Bedrifts- & sosiale" },
-  { value: "Webutvikling", label: "Moderne nettsider" },
-  { value: "Apputvikling", label: "Mobilapper" },
 ];
 
 export default function About() {
@@ -36,14 +34,13 @@ export default function About() {
             <Reveal delay={80}>
               <div className="space-y-6 text-lg leading-relaxed text-white/70">
                 <p>
-                  Jeg er filmskaper, videograf, webdesigner og apputvikler under
-                  navnet <span className="text-white">BERGE</span>. Jeg lager alt fra
-                  kortfilm til kommersielle filmer for folk og bedrifter — i tillegg til
-                  moderne nettsider og mobilapper.
+                  Jeg er filmskaper og videograf under navnet{" "}
+                  <span className="text-white">BERGE</span>. Jeg lager alt fra
+                  kortfilm til kommersielle filmer for folk og bedrifter.
                 </p>
                 <p>
-                  Jeg tar hånd om hele prosessen — fra idé til ferdig produkt.
-                  Konsept, design, utvikling og lansering.
+                  Jeg tar hånd om hele prosessen — fra idé til ferdig film.
+                  Konsept, filming og klipping.
                 </p>
                 <p>
                   Basert i Norge, tilgjengelig over hele landet.

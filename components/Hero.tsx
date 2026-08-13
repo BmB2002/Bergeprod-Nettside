@@ -44,7 +44,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          Filmskaper | Webdesigner | Apputvikler
+          Filmskaper & Videograf
         </motion.p>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <motion.img
@@ -61,7 +61,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.7 }}
         >
-          Film, web og app av Bjørn Magnus Berge.
+          Visuell historiefortelling av Bjørn Magnus Berge.
         </motion.p>
         <motion.div
           className="mt-10 flex flex-wrap items-center justify-center gap-3"
@@ -71,31 +71,15 @@ export default function Hero() {
         >
           <motion.a
             href="#work"
-            className="rounded-full bg-white px-6 py-2.5 text-xs font-semibold uppercase tracking-widest text-ink transition-all duration-300 md:px-7 md:py-3 md:text-sm"
+            className="rounded-full bg-white px-7 py-3 text-sm font-medium text-ink transition-all duration-300"
             whileHover={{ scale: 1.08, boxShadow: "0 10px 25px rgba(0,0,0,0.3)" }}
             whileTap={{ scale: 0.98 }}
           >
             Se filmer
           </motion.a>
           <motion.a
-            href="#web"
-            className="rounded-full bg-white/15 px-6 py-2.5 text-xs font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:bg-white/25 md:px-7 md:py-3 md:text-sm"
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Webutvikling
-          </motion.a>
-          <motion.a
-            href="#apps"
-            className="rounded-full bg-white/15 px-6 py-2.5 text-xs font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:bg-white/25 md:px-7 md:py-3 md:text-sm"
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Apputvikling
-          </motion.a>
-          <motion.a
             href="#contact"
-            className="rounded-full border border-white/30 px-6 py-2.5 text-xs font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:border-white hover:bg-white/10 md:px-7 md:py-3 md:text-sm"
+            className="rounded-full border border-white/30 px-7 py-3 text-sm font-medium text-white transition-all duration-300"
             whileHover={{ borderColor: "white", boxShadow: "0 0 20px rgba(255,255,255,0.1)" }}
             whileTap={{ scale: 0.98 }}
           >
