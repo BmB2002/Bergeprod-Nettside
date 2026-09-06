@@ -35,6 +35,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={inter.variable}>
+      <script src="https://api.chato.no/w.js" data-site="pk_live_bergeprod_iv4n0pwc" async></script>
       <body>{children}</body>
     </html>
   );
