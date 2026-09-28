@@ -6,12 +6,14 @@ export default function Footer() {
         <p className="text-xs text-mute">
           © {new Date().getFullYear()} Bjørn Magnus Berge. Alle rettigheter forbeholdt.
         </p>
-        <a
-          href="#top"
-          className="text-xs text-mute transition-colors hover:text-white"
-        >
-          Til toppen ↑
-        </a>
+        <div className="flex items-center gap-6">
+          <a href="/personvern" className="text-xs text-mute transition-colors hover:text-white">
+            Personvern
+          </a>
+          <a href="#top" className="text-xs text-mute transition-colors hover:text-white">
+            Til toppen ↑
+          </a>
+        </div>
       </div>
     </footer>
   );

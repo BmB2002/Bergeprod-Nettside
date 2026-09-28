@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import LegalPage from "@/components/LegalPage";
+import AppDetail from "@/components/apps/AppDetail";
 import { apps, getApp } from "@/lib/apps";
 
 export function generateStaticParams() {
@@ -11,11 +11,11 @@ export const dynamicParams = false;
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const app = getApp((await params).slug);
-  return { title: app ? `Brukervilkår — ${app.name}` : "Brukervilkår" };
+  return app ? { title: `${app.name} — BERGE`, description: app.short } : {};
 }
 
-export default async function TermsPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function AppPage({ params }: { params: Promise<{ slug: string }> }) {
   const app = getApp((await params).slug);
   if (!app) notFound();
-  return <LegalPage app={app} doc={app.terms} label="Brukervilkår" fallbackHeading="Brukervilkår" />;
+  return <AppDetail app={app} />;
 }

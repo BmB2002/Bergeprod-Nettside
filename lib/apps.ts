@@ -1,32 +1,69 @@
+import { minBelonningPrivacy } from "./legal/minbelonning-privacy";
+import { minBelonningTerms } from "./legal/minbelonning-terms";
+
+// Text fields support **bold** and [label](href) inline
+export type LegalBlock =
+  | { type: "p"; text: string }
+  | { type: "short"; text: string }
+  | { type: "ul"; items: string[] }
+  | { type: "h3"; text: string; id?: string }
+  | { type: "table"; head: string[]; rows: string[][] }
+  | { type: "address"; lines: string[] }
+  | { type: "qa"; items: { q: string; a: string }[] };
+
 export type LegalSection = {
   title: string;
+  // Sections with an id are listed in the table of contents
+  id?: string;
+  summary?: boolean;
   paragraphs?: string[];
   items?: string[];
+  blocks?: LegalBlock[];
 };
 
 export type LegalDoc = {
   heading: string;
   updated: string;
-  intro?: string;
+  intro?: string | string[];
+  toc?: boolean;
   sections: LegalSection[];
 };
+
+export type SupportInfo = {
+  intro: string;
+  channels: { title: string; description: string; label: string; href: string }[];
+  faq: { q: string; a: string }[];
+};
+
+export type Platform = "ios" | "android" | "web" | "windows";
 
 export type App = {
   slug: string;
   name: string;
   category: string;
   tagline: string;
+  // Card text on the overview page
+  short: string;
+  platforms: Platform[];
   description: string;
   features: string[];
   stats: { value: string; label: string }[];
   accent: string;
   icon?: string;
+  // Wordmark shown on the app's own page
+  logo?: string;
   website?: string;
   appStoreUrl?: string;
   googlePlayUrl?: string;
-  // Empty = the showcase renders a generated preview for this slug instead
+  // First one is used on the overview card, first two in the app page hero
   screenshots: string[];
+  about?: {
+    paragraphs: string[];
+    sections: { title: string; items: string[] }[];
+    note?: string;
+  };
   contactEmail: string;
+  support: SupportInfo;
   privacy: LegalDoc | null;
   terms: LegalDoc | null;
 };
@@ -37,6 +74,8 @@ export const apps: App[] = [
     name: "Dønk",
     category: "Underholdning",
     tagline: "Festapp for iOS og Android",
+    short: "Partyspill-appen for vennegrupper. Flere spill, både flerspiller og enkeltspill.",
+    platforms: ["ios", "android"],
     description:
       "Dønk er en festapp jeg har designet og utviklet, tilgjengelig på App Store og Google Play. Jeg har også laget nettsiden donkapp.no som presenterer appen.",
     features: [
@@ -51,11 +90,48 @@ export const apps: App[] = [
     ],
     accent: "#ff6a1a",
     icon: "/apps/donk-icon.jpg",
+    logo: "/apps/donk-logo.png",
     website: "https://www.donkapp.no",
     appStoreUrl: "https://apps.apple.com/no/app/d%C3%B8nk/id6762613600?l=nb",
     googlePlayUrl: "https://play.google.com/store/apps/details?id=com.bjorn.dronk",
     screenshots: ["/apps/donk-home.jpg", "/apps/donk-lobby.jpg"],
     contactEmail: "support@donkapp.no",
+    support: {
+      intro:
+        "Trenger du hjelp med noe, har du funnet en bug, eller har du bare et drøyt forslag til et nytt spill? Ta kontakt!",
+      channels: [
+        {
+          title: "Instagram",
+          description: "Send oss en DM for raske svar og ferske oppdateringer.",
+          label: "@donk_partyapp",
+          href: "https://instagram.com/donk_partyapp",
+        },
+        {
+          title: "E-post",
+          description: "For mer formelle henvendelser eller tekniske problemer.",
+          label: "support@donkapp.no",
+          href: "mailto:support@donkapp.no",
+        },
+      ],
+      faq: [
+        {
+          q: "Hvordan spiller jeg med venner på flere telefoner?",
+          a: "Velg flerspiller, og del den sekssifrede koden med vennene dine. De skriver inn koden i appen og havner i samme lobby — opptil 20 spillere.",
+        },
+        {
+          q: "Hvordan avslutter jeg abonnementet?",
+          a: "Abonnementet administreres via Apple ID eller Google-kontoen din. På iPhone: Innstillinger → [navnet ditt] → Abonnementer → Dønk. Kanseller minst 24 timer før perioden fornyes.",
+        },
+        {
+          q: "Jeg har betalt, men har ikke fått tilgang. Hva gjør jeg?",
+          a: "Prøv «Gjenopprett kjøp» i appen. Hjelper ikke det, send oss en e-post med en beskrivelse av problemet.",
+        },
+        {
+          q: "Hvordan får jeg refusjon?",
+          a: "Refusjoner håndteres av Apple eller Google. For App Store-kjøp, gå til reportaproblem.apple.com.",
+        },
+      ],
+    },
     privacy: {
       heading: "Personvernerklæring",
       updated: "Sist oppdatert: Mai 2025",
@@ -165,24 +241,129 @@ export const apps: App[] = [
     slug: "minbelonning",
     name: "Min Belønning",
     category: "Familie",
-    tagline: "Oppgaver og lommepenger for hele familien",
+    tagline: "Husarbeid barna faktisk gleder seg til",
+    short: "Du lager oppgavene, barna gjør dem, og du godkjenner med ett trykk. Så ser de belønningen vokse.",
+    platforms: ["ios"],
     description:
-      "Min Belønning er en app jeg har designet og utviklet for foreldre og barn. Foreldre legger inn oppgaver med et beløp knyttet til seg, og barna tjener penger for hver oppgave de gjør — det gjør husarbeidet morsommere og mer givende.",
+      "Min Belønning gjør husarbeid til noe barna faktisk gleder seg til. Du lager oppgavene, barna gjør dem, og du godkjenner med ett trykk. Så ser de belønningen vokse mot det de sparer til.",
     features: [
-      "Foreldre lager oppgaver med et beløp",
-      "Barna huker av og tjener penger per oppgave",
-      "Full oversikt over hva hvert barn har tjent",
+      "Lag oppgaver og bestem hva de er verdt",
+      "Barna trykker «Jeg er ferdig!», og du godkjenner med ett trykk",
+      "Sparemål, toppliste og feiring for barna",
     ],
     stats: [
       { value: "Familie", label: "Kategori" },
-      { value: "Foreldre & barn", label: "For" },
+      { value: "49 kr/mnd", label: "Min Belønning+" },
       { value: "Kommer snart", label: "Status" },
     ],
-    accent: "#2fc58a",
-    screenshots: [],
-    contactEmail: "kontakt.bergemedia@gmail.com",
-    privacy: null,
-    terms: null,
+    accent: "#ff3d9a",
+    icon: "/apps/minbelonning-icon.jpg",
+    logo: "/apps/minbelonning-logo.png",
+    screenshots: [
+      "/apps/minbelonning-welcome.jpg",
+      "/apps/minbelonning-child-home.jpg",
+      "/apps/minbelonning-parent-home.jpg",
+      "/apps/minbelonning-new-task.jpg",
+      "/apps/minbelonning-earned.jpg",
+      "/apps/minbelonning-leaderboard.jpg",
+    ],
+    about: {
+      paragraphs: [
+        "Ingen lister på kjøleskapet, ingen masing og ingen krangling om hva som ble lovet. Alt står i appen, for både deg og barna.",
+      ],
+      sections: [
+        {
+          title: "Slik fungerer det",
+          items: [
+            "Lag en oppgave og bestem hva den er verdt, for eksempel 30 kr for å rydde rommet.",
+            "Gi den til ett barn, til alle, eller la den som er først ta den.",
+            "Barnet trykker «Jeg er ferdig!», og du får beskjed.",
+            "Du godkjenner, og barnet får en skikkelig feiring på skjermen.",
+          ],
+        },
+        {
+          title: "For barna",
+          items: [
+            "Egen oversikt over dagens oppgaver",
+            "Sparemål som viser hvor langt de har kommet",
+            "Feiring med mynter og jubel hver gang en oppgave blir godkjent",
+            "Toppliste for uken, måneden og totalt",
+            "Et lite spill å kose seg med",
+          ],
+        },
+        {
+          title: "For deg som forelder",
+          items: [
+            "Familiepotten viser hva barna kan tjene. Når du godkjenner, flyttes beløpet fra potten til barnet.",
+            "Du ser alltid hva hvert barn har tjent og hva som er betalt ut.",
+            "Ikke helt ferdig? Send oppgaven tilbake, så får barnet beskjed om å prøve igjen.",
+            "Du betaler ut selv, slik dere pleier, og markerer det i appen.",
+          ],
+        },
+        {
+          title: "Trygt for barna",
+          items: [
+            "Barnet kobler til sin egen telefon ved å skanne en kode på telefonen din. Barna lager ingen konto og trenger verken passord eller epostadresse.",
+            "Bilder lagres privat, og bare familien kan se dem.",
+            "Ingen reklame og ingen sporing.",
+            "Belønningene er et regnskap i appen. Ingen ekte penger flyttes.",
+          ],
+        },
+        {
+          title: "Min Belønning+",
+          items: [
+            "Opptil 20 aktive og 50 lagrede oppgaver",
+            "Faste oppgaver som dukker opp av seg selv hver dag eller uke",
+            "Bildebevis: barnet tar et bilde når oppgaven er gjort",
+            "Beskrivelse og sjekkliste på oppgavene",
+            "Flere sparemål per barn og flere foresatte i familien",
+            "Familieoversikt og hele historikken",
+          ],
+        },
+      ],
+      note: "Min Belønning+ koster 49 kr i måneden eller 399 kr i året. Abonnementet fornyes automatisk og trekkes fra kontoen din i App Store. Du kan si det opp når som helst i innstillingene for App Store, senest 24 timer før neste periode starter.",
+    },
+    contactEmail: "hei@bergeprod.no",
+    support: {
+      intro:
+        "Trenger du hjelp med Min Belønning, har du funnet en feil, eller har du et forslag til hvordan appen kan bli bedre? Ta kontakt, så hjelper vi deg.",
+      channels: [
+        {
+          title: "E-post",
+          description: "For spørsmål, tekniske problemer, personvern og tilbakemeldinger.",
+          label: "hei@bergeprod.no",
+          href: "mailto:hei@bergeprod.no",
+        },
+      ],
+      faq: [
+        {
+          q: "Hvordan kobler jeg til barnets telefon?",
+          a: "Barnet skanner en kode som vises på telefonen din. Barna lager ingen konto og trenger verken passord eller epostadresse.",
+        },
+        {
+          q: "Hvordan lager jeg en oppgave?",
+          a: "Trykk «Ny oppgave», bestem hva den er verdt, og velg om den skal gå til ett barn, til alle, eller til den som er først.",
+        },
+        {
+          q: "Hva skjer når barnet er ferdig?",
+          a: "Barnet trykker «Jeg er ferdig!», og du får beskjed. Godkjenner du, flyttes beløpet fra familiepotten til barnet. Er ikke oppgaven helt ferdig, kan du sende den tilbake så barnet får prøve igjen.",
+        },
+        {
+          q: "Flytter appen ekte penger?",
+          a: "Nei. Belønningene er et regnskap i appen. Du betaler ut selv, slik dere pleier, og markerer det i appen.",
+        },
+        {
+          q: "Hva får jeg med Min Belønning+?",
+          a: "Flere aktive og lagrede oppgaver, faste oppgaver som gjentar seg, bildebevis, sjekklister, flere sparemål og foresatte, og hele historikken. Det koster 49 kr i måneden eller 399 kr i året.",
+        },
+        {
+          q: "Hvordan sier jeg opp Min Belønning+?",
+          a: "Abonnementet sies opp i innstillingene for App Store, senest 24 timer før neste periode starter.",
+        },
+      ],
+    },
+    privacy: minBelonningPrivacy,
+    terms: minBelonningTerms,
   },
 ];
 

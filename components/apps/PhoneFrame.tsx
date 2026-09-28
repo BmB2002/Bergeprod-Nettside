@@ -1,26 +1,23 @@
 export default function PhoneFrame({
   image,
   alt = "",
-  children,
+  className = "w-[9.5rem] sm:w-48 md:w-56 lg:w-60",
 }: {
-  image?: string;
+  image: string;
   alt?: string;
-  children?: React.ReactNode;
+  className?: string;
 }) {
   return (
-    <div className="relative w-[9.5rem] rounded-[16%/7.4%] bg-[#0d0d0d] p-[3.2%] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.9)] ring-1 ring-white/15 sm:w-48 md:w-56 lg:w-60">
-      <div className="relative aspect-[640/1385] overflow-hidden rounded-[13%/6%] bg-black">
-        {/* Dynamic island */}
-        <div className="absolute left-1/2 top-[1.6%] z-10 h-[3.4%] w-[30%] -translate-x-1/2 rounded-full bg-black" />
-        {image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={image} alt={alt} className="h-full w-full object-cover" />
-        ) : (
-          // Screen content sized in em, scaled off the phone's width
-          <div className="@container h-full w-full">
-            <div className="h-full w-full text-[4.4cqw]">{children}</div>
-          </div>
-        )}
+    <div
+      className={`relative rounded-[16%/7.4%] bg-gradient-to-b from-[#3a3b3f] via-[#1a1b1d] to-[#2b2c30] p-[1.2%] shadow-[0_40px_90px_-25px_rgba(0,0,0,0.95)] ${className}`}
+    >
+      <div className="rounded-[15%/7%] bg-[#070707] p-[2.4%]">
+        <div className="relative aspect-[640/1385] overflow-hidden rounded-[13%/6%] bg-black">
+          {/* Dynamic island */}
+          <div className="absolute left-1/2 top-[1.6%] z-10 h-[3.4%] w-[30%] -translate-x-1/2 rounded-full bg-black" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={image} alt={alt} className="h-full w-full object-cover object-top" />
+        </div>
       </div>
     </div>
   );

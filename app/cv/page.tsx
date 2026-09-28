@@ -415,7 +415,12 @@ export default function CV() {
       </main>
 
       <footer className="py-8 text-center">
-        <p className="text-xs text-white/25">© {new Date().getFullYear()} Bjørn Magnus Berge — BERGE</p>
+        <p className="text-xs text-white/25">
+          © {new Date().getFullYear()} Bjørn Magnus Berge — BERGE ·{" "}
+          <Link href="/personvern" className="transition-colors hover:text-white/60">
+            Personvern
+          </Link>
+        </p>
       </footer>
     </div>
   );
