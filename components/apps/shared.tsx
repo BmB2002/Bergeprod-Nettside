@@ -24,6 +24,10 @@ export function cardBackground(accent: string) {
   ].join(", ");
 }
 
+export function projectHref(app: App) {
+  return app.projectUrl ?? `/${app.slug}`;
+}
+
 export function AppIcon({ app, className = "h-20 w-20 md:h-24 md:w-24" }: { app: App; className?: string }) {
   return (
     <div className={`${className} shrink-0 overflow-hidden rounded-[22%] shadow-[0_12px_30px_-10px_rgba(0,0,0,0.8)] ring-1 ring-white/10`}>

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { App } from "@/lib/apps";
-import { AppIcon, Arrow, PlatformPills, appScreens, cardBackground, ease, fadeUp, stagger } from "./shared";
+import { AppIcon, Arrow, PlatformPills, appScreens, cardBackground, ease, fadeUp, projectHref, stagger } from "./shared";
 
 function Hero() {
   return (
@@ -61,7 +61,7 @@ function AppCard({ app, index }: { app: App; index: number }) {
           )}
         </div>
         <h2 className="mt-5 text-[1.9rem] font-bold leading-tight tracking-tight">
-          <Link href={`/${app.slug}`}>{app.name}</Link>
+          <Link href={projectHref(app)}>{app.name}</Link>
         </h2>
         <p className="mt-2 text-[15px] leading-relaxed text-white/60">{app.short}</p>
 
@@ -70,7 +70,7 @@ function AppCard({ app, index }: { app: App; index: number }) {
         </div>
 
         <Link
-          href={`/${app.slug}`}
+          href={projectHref(app)}
           className="mt-6 inline-flex w-fit items-center gap-3 rounded-full border border-white/80 px-6 py-3 text-sm font-semibold transition-colors hover:bg-white hover:text-black sm:mt-auto"
         >
           Se prosjekt

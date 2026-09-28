@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { App } from "@/lib/apps";
-import { AppIcon, Arrow, cardBackground } from "./shared";
+import { AppIcon, Arrow, cardBackground, projectHref } from "./shared";
 
 export default function DocShell({
   app,
@@ -23,7 +23,7 @@ export default function DocShell({
 
   return (
     <div className="mx-auto max-w-4xl px-4 pb-10 pt-4 md:px-8">
-      <Link href={`/${app.slug}`} className="inline-flex items-center gap-2 px-2 text-sm text-white/55 transition-colors hover:text-white">
+      <Link href={projectHref(app)} className="inline-flex items-center gap-2 px-2 text-sm text-white/55 transition-colors hover:text-white">
         <Arrow className="rotate-180" />
         {app.name}
       </Link>

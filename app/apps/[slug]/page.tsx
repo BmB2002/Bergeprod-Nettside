@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import AppDetail from "@/components/apps/AppDetail";
 import { apps, getApp } from "@/lib/apps";
 
@@ -17,5 +17,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function AppPage({ params }: { params: Promise<{ slug: string }> }) {
   const app = getApp((await params).slug);
   if (!app) notFound();
+  if (app.projectUrl) redirect(app.projectUrl);
   return <AppDetail app={app} />;
 }

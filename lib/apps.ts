@@ -52,6 +52,8 @@ export type App = {
   icon?: string;
   // Wordmark shown on the app's own page
   logo?: string;
+  // If set, the project card and /<slug> go here instead of the app's own page
+  projectUrl?: string;
   website?: string;
   appStoreUrl?: string;
   googlePlayUrl?: string;
@@ -91,6 +93,7 @@ export const apps: App[] = [
     accent: "#ff6a1a",
     icon: "/apps/donk-icon.jpg",
     logo: "/apps/donk-logo.png",
+    projectUrl: "https://www.donkapp.no/",
     website: "https://www.donkapp.no",
     appStoreUrl: "https://apps.apple.com/no/app/d%C3%B8nk/id6762613600?l=nb",
     googlePlayUrl: "https://play.google.com/store/apps/details?id=com.bjorn.dronk",
