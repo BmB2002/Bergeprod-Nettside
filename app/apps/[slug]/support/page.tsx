@@ -21,7 +21,7 @@ export default async function SupportPage({ params }: { params: Promise<{ slug: 
   const { support } = app;
 
   return (
-    <DocShell app={app} label="Support" heading="Hvordan kan vi hjelpe?">
+    <DocShell app={app} kind="support" heading="Hvordan kan vi hjelpe?">
       <p className="text-base leading-relaxed text-white/75 md:text-[17px]">{support.intro}</p>
 
       <div className={`mt-8 grid gap-4 ${support.channels.length > 1 ? "sm:grid-cols-2" : ""}`}>

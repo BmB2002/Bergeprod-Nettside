@@ -1,5 +1,20 @@
-import type { App, LegalBlock, LegalDoc, LegalSection } from "@/lib/apps";
+import type { App, Lang, LegalBlock, LegalDoc, LegalSection } from "@/lib/apps";
 import DocShell from "./apps/DocShell";
+
+const ui: Record<Lang, { short: string; toc: string; question: string; soon: string }> = {
+  no: {
+    short: "Kort fortalt:",
+    toc: "Innhold",
+    question: "Spørsmål? Kontakt oss på",
+    soon: "Denne siden publiseres snart.",
+  },
+  en: {
+    short: "In short:",
+    toc: "Contents",
+    question: "Questions? Contact us at",
+    soon: "This page will be published soon.",
+  },
+};
 
 const linkClass = "text-white underline decoration-white/30 underline-offset-4 transition-colors hover:decoration-white";
 
@@ -33,7 +48,7 @@ function Rich({ text }: { text: string }) {
 
 const body = "text-[15px] leading-relaxed text-white/65 md:text-base";
 
-function Block({ block, accent }: { block: LegalBlock; accent: string }) {
+function Block({ block, accent, lang }: { block: LegalBlock; accent: string; lang: Lang }) {
   switch (block.type) {
     case "p":
       return <p className={`mt-3 ${body}`}><Rich text={block.text} /></p>;
@@ -43,7 +58,7 @@ function Block({ block, accent }: { block: LegalBlock; accent: string }) {
           className="mt-4 rounded-xl border px-4 py-3 text-[15px] leading-relaxed text-white/85"
           style={{ borderColor: `${accent}40`, background: `${accent}12` }}
         >
-          <strong className="font-semibold" style={{ color: accent }}>Kort fortalt: </strong>
+          <strong className="font-semibold" style={{ color: accent }}>{ui[lang].short} </strong>
           <Rich text={block.text} />
         </p>
       );
@@ -106,7 +121,7 @@ function Block({ block, accent }: { block: LegalBlock; accent: string }) {
   }
 }
 
-function Section({ section, accent }: { section: LegalSection; accent: string }) {
+function Section({ section, accent, lang }: { section: LegalSection; accent: string; lang: Lang }) {
   const content = (
     <>
       <h2 className="text-lg font-semibold text-white md:text-xl">{section.title}</h2>
@@ -120,7 +135,7 @@ function Section({ section, accent }: { section: LegalSection; accent: string })
           ))}
         </ul>
       )}
-      {section.blocks?.map((b, i) => <Block key={i} block={b} accent={accent} />)}
+      {section.blocks?.map((b, i) => <Block key={i} block={b} accent={accent} lang={lang} />)}
     </>
   );
 
@@ -143,39 +158,42 @@ function Section({ section, accent }: { section: LegalSection; accent: string })
 
 export default function LegalPage({
   app,
-  doc,
-  label,
-  fallbackHeading,
+  kind,
+  lang = "no",
 }: {
   app: App;
-  doc: LegalDoc | null;
-  label: "Personvern" | "Brukervilkår";
-  fallbackHeading: string;
+  kind: "privacy" | "terms";
+  lang?: Lang;
 }) {
+  const doc =
+    lang === "en" ? (kind === "privacy" ? app.privacyEn : app.termsEn) ?? null : kind === "privacy" ? app.privacy : app.terms;
+
   if (!doc) {
+    const fallback = { no: { privacy: "Personvernerklæring", terms: "Brukervilkår" }, en: { privacy: "Privacy Policy", terms: "Terms of Use" } };
     return (
-      <DocShell app={app} label={label} heading={fallbackHeading}>
-        <p className="text-base text-white/60">Denne siden publiseres snart.</p>
+      <DocShell app={app} kind={kind} lang={lang} heading={fallback[lang][kind]}>
+        <p className="text-base text-white/60">{ui[lang].soon}</p>
       </DocShell>
     );
   }
 
   return (
-    <DocShell app={app} label={label} heading={doc.heading} meta={doc.updated}>
+    <DocShell app={app} kind={kind} lang={lang} heading={doc.heading} meta={doc.updated}>
       <LegalBody doc={doc} accent={app.accent} contactEmail={app.contactEmail} />
     </DocShell>
   );
 }
 
 export function LegalBody({ doc, accent, contactEmail }: { doc: LegalDoc; accent: string; contactEmail: string }) {
+  const lang = doc.lang ?? "no";
   const intro = typeof doc.intro === "string" ? [doc.intro] : doc.intro ?? [];
   const tocSections = doc.toc ? doc.sections.filter((s) => s.id) : [];
-  const hasContactSection = doc.sections.some((s) => s.id === "kontakt");
+  const hasContactSection = doc.sections.some((s) => s.id === "kontakt" || s.id === "contact");
   const summaryIndex = doc.sections.findIndex((s) => s.summary);
 
   const toc = tocSections.length > 0 && (
-    <nav aria-label="Innhold" className="rounded-[1.25rem] border border-white/[0.08] bg-black/25 p-6 sm:p-8">
-      <h2 className="text-[11px] font-medium uppercase tracking-[0.35em] text-white/45">Innhold</h2>
+    <nav aria-label={ui[lang].toc} className="rounded-[1.25rem] border border-white/[0.08] bg-black/25 p-6 sm:p-8">
+      <h2 className="text-[11px] font-medium uppercase tracking-[0.35em] text-white/45">{ui[lang].toc}</h2>
       <ol className="mt-5 grid gap-x-8 gap-y-2 text-[15px] sm:grid-cols-2">
         {tocSections.map((t) => (
           <li key={t.id}>
@@ -200,7 +218,7 @@ export function LegalBody({ doc, accent, contactEmail }: { doc: LegalDoc; accent
         {summaryIndex === -1 && toc}
         {doc.sections.map((s, i) => (
           <div key={s.title} className="space-y-12">
-            <Section section={s} accent={accent} />
+            <Section section={s} accent={accent} lang={lang} />
             {i === summaryIndex && toc}
           </div>
         ))}
@@ -208,7 +226,7 @@ export function LegalBody({ doc, accent, contactEmail }: { doc: LegalDoc; accent
 
       {!hasContactSection && (
         <p className="mt-12 border-t border-white/[0.08] pt-8 text-[15px] text-white/60">
-          Spørsmål? Kontakt oss på{" "}
+          {ui[lang].question}{" "}
           <a href={`mailto:${contactEmail}`} className={linkClass}>
             {contactEmail}
           </a>

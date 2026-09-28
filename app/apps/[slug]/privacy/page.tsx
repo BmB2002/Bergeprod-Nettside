@@ -17,5 +17,5 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function PrivacyPage({ params }: { params: Promise<{ slug: string }> }) {
   const app = getApp((await params).slug);
   if (!app) notFound();
-  return <LegalPage app={app} doc={app.privacy} label="Personvern" fallbackHeading="Personvernerklæring" />;
+  return <LegalPage app={app} kind="privacy" />;
 }

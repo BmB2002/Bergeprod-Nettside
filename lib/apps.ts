@@ -1,5 +1,7 @@
 import { minBelonningPrivacy } from "./legal/minbelonning-privacy";
 import { minBelonningTerms } from "./legal/minbelonning-terms";
+import { minBelonningPrivacyEn } from "./legal/minbelonning-privacy-en";
+import { minBelonningTermsEn } from "./legal/minbelonning-terms-en";
 
 // Text fields support **bold** and [label](href) inline
 export type LegalBlock =
@@ -21,7 +23,11 @@ export type LegalSection = {
   blocks?: LegalBlock[];
 };
 
+export type Lang = "no" | "en";
+
 export type LegalDoc = {
+  // Language of the text, controls the page's own labels. Defaults to Norwegian.
+  lang?: Lang;
   heading: string;
   updated: string;
   intro?: string | string[];
@@ -68,6 +74,10 @@ export type App = {
   support: SupportInfo;
   privacy: LegalDoc | null;
   terms: LegalDoc | null;
+  // Optional English versions, served under /<slug>/en/privacy and /<slug>/en/terms
+  nameEn?: string;
+  privacyEn?: LegalDoc;
+  termsEn?: LegalDoc;
 };
 
 export const apps: App[] = [
@@ -367,6 +377,9 @@ export const apps: App[] = [
     },
     privacy: minBelonningPrivacy,
     terms: minBelonningTerms,
+    nameEn: "My Reward",
+    privacyEn: minBelonningPrivacyEn,
+    termsEn: minBelonningTermsEn,
   },
 ];
 
