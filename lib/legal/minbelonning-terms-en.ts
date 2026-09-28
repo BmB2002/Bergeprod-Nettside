@@ -1,7 +1,7 @@
 import type { LegalDoc } from "../apps";
 
 const EMAIL = "[hei@bergeprod.no](mailto:hei@bergeprod.no)";
-const PRIVACY = "[Privacy Policy](https://apps.bergeprod.no/minbelonning/en/privacy)";
+const PRIVACY = "[Privacy Policy](https://apps.bergeprod.no/minbelonning/privacy?lang=en)";
 const ADDRESS = ["Berge Media, organization number 933 194 132", "Korsvika 61", "6006 Ålesund", "Norway", `Email: ${EMAIL}`];
 
 export const minBelonningTermsEn: LegalDoc = {

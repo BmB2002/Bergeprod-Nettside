@@ -1,5 +1,6 @@
 import type { App, Lang, LegalBlock, LegalDoc, LegalSection } from "@/lib/apps";
 import DocShell from "./apps/DocShell";
+import { LangSwitch } from "./apps/LangSwitch";
 
 const ui: Record<Lang, { short: string; toc: string; question: string; soon: string }> = {
   no: {
@@ -165,23 +166,29 @@ export default function LegalPage({
   kind: "privacy" | "terms";
   lang?: Lang;
 }) {
-  const doc =
-    lang === "en" ? (kind === "privacy" ? app.privacyEn : app.termsEn) ?? null : kind === "privacy" ? app.privacy : app.terms;
+  const noDoc = kind === "privacy" ? app.privacy : app.terms;
+  const enDoc = kind === "privacy" ? app.privacyEn : app.termsEn;
 
-  if (!doc) {
-    const fallback = { no: { privacy: "Personvernerklæring", terms: "Brukervilkår" }, en: { privacy: "Privacy Policy", terms: "Terms of Use" } };
+  const render = (l: Lang, doc: LegalDoc | null) => {
+    if (!doc) {
+      const fallback = { no: { privacy: "Personvernerklæring", terms: "Brukervilkår" }, en: { privacy: "Privacy Policy", terms: "Terms of Use" } };
+      return (
+        <DocShell app={app} kind={kind} lang={l} heading={fallback[l][kind]}>
+          <p className="text-base text-white/60">{ui[l].soon}</p>
+        </DocShell>
+      );
+    }
     return (
-      <DocShell app={app} kind={kind} lang={lang} heading={fallback[lang][kind]}>
-        <p className="text-base text-white/60">{ui[lang].soon}</p>
+      <DocShell app={app} kind={kind} lang={l} heading={doc.heading} meta={doc.updated}>
+        <LegalBody doc={doc} accent={app.accent} contactEmail={app.contactEmail} />
       </DocShell>
     );
-  }
+  };
 
-  return (
-    <DocShell app={app} kind={kind} lang={lang} heading={doc.heading} meta={doc.updated}>
-      <LegalBody doc={doc} accent={app.accent} contactEmail={app.contactEmail} />
-    </DocShell>
-  );
+  // No English version: always Norwegian, no toggle
+  if (!enDoc) return render("no", noDoc);
+
+  return <LangSwitch initial={lang} no={render("no", noDoc)} en={render("en", enDoc)} />;
 }
 
 export function LegalBody({ doc, accent, contactEmail }: { doc: LegalDoc; accent: string; contactEmail: string }) {

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { App, Lang } from "@/lib/apps";
 import { AppIcon, Arrow, cardBackground, projectHref } from "./shared";
+import { LangToggle } from "./LangSwitch";
 
 export type DocKind = "support" | "privacy" | "terms";
 
@@ -9,9 +10,9 @@ const labels: Record<Lang, Record<DocKind, string>> = {
   en: { support: "Support", privacy: "Privacy", terms: "Terms" },
 };
 
-// Norwegian pages live at /<slug>/<kind>, English at /<slug>/en/<kind>
-export function docHref(app: App, kind: DocKind, lang: Lang) {
-  return lang === "en" && kind !== "support" ? `/${app.slug}/en/${kind}` : `/${app.slug}/${kind}`;
+// One address per page. ?lang keeps the chosen language when moving between privacy and terms.
+function docHref(app: App, kind: DocKind, lang: Lang) {
+  return hasEnglish(app, kind) ? `/${app.slug}/${kind}?lang=${lang}` : `/${app.slug}/${kind}`;
 }
 
 export function hasEnglish(app: App, kind: DocKind) {
@@ -37,12 +38,8 @@ export default function DocShell({
   const tabs = (["support", "privacy", "terms"] as DocKind[]).map((k) => ({
     kind: k,
     title: labels[lang][k],
-    // Stay in the current language when switching tabs, if that version exists
-    href: docHref(app, k, lang === "en" && hasEnglish(app, k) ? "en" : "no"),
+    href: docHref(app, k, lang),
   }));
-  const toggle = hasEnglish(app, kind)
-    ? (["no", "en"] as Lang[]).map((l) => ({ lang: l, href: docHref(app, kind, l) }))
-    : null;
 
   return (
     <div className="mx-auto max-w-4xl px-4 pb-10 pt-4 md:px-8">
@@ -55,26 +52,7 @@ export default function DocShell({
         className="relative mt-6 overflow-hidden rounded-[1.5rem] border border-white/[0.08] p-7 sm:p-10"
         style={{ background: cardBackground(app.accent) }}
       >
-        {toggle && (
-          <nav
-            aria-label={lang === "en" ? "Language" : "Språk"}
-            className="mb-6 flex w-fit rounded-full border border-white/15 bg-black/40 p-1 text-xs font-semibold sm:absolute sm:right-8 sm:top-8 sm:mb-0"
-          >
-            {toggle.map((t) => (
-              <Link
-                key={t.lang}
-                href={t.href}
-                hrefLang={t.lang === "no" ? "nb" : "en"}
-                aria-current={t.lang === lang ? "page" : undefined}
-                className={`rounded-full px-3.5 py-1.5 tracking-wider transition-colors ${
-                  t.lang === lang ? "bg-white text-black" : "text-white/60 hover:text-white"
-                }`}
-              >
-                {t.lang.toUpperCase()}
-              </Link>
-            ))}
-          </nav>
-        )}
+        {hasEnglish(app, kind) && <LangToggle current={lang} />}
 
         <div className="flex items-center gap-5">
           <AppIcon app={app} className="h-16 w-16 md:h-20 md:w-20" />
