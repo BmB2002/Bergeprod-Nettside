@@ -2,14 +2,14 @@ import type { LegalDoc } from "../apps";
 
 const EMAIL = "[hei@bergeprod.no](mailto:hei@bergeprod.no)";
 const SUPPORT = "[apps.bergeprod.no/minbelonning/support](https://apps.bergeprod.no/minbelonning/support)";
-const ADDRESS = ["Berge Media", "Korsvika 61", "6006 Ålesund", "Norge"];
+const ADDRESS = ["Berge Media, org.nr. 933 194 132", "Korsvika 61", "6006 Ålesund", "Norge"];
 
 export const minBelonningPrivacy: LegalDoc = {
   heading: "Personvernerklæring for Min Belønning",
-  updated: "Sist oppdatert 28. september 2026",
+  updated: "Sist oppdatert 29. september 2026",
   toc: true,
   intro: [
-    "Denne personvernerklæringen gjelder for mobilappen Min Belønning («appen») og tjenestene som hører til den («tjenestene»). Tjenestene leveres av Berge Media («vi», «oss» og «vår»).",
+    "Denne personvernerklæringen gjelder for mobilappen Min Belønning, som heter My Reward på engelsk («appen») og tjenestene som hører til den («tjenestene»). Tjenestene leveres av Berge Media («vi», «oss» og «vår»).",
     "Erklæringen forklarer hvilke personopplysninger vi behandler, hvorfor vi gjør det, hvem vi deler dem med, hvor lenge vi lagrer dem og hvilke rettigheter du har. Behandlingen skjer i samsvar med personvernforordningen (GDPR) og personopplysningsloven.",
     `Har du spørsmål om personvern, kan du kontakte oss på ${EMAIL}.`,
   ],
@@ -80,10 +80,10 @@ export const minBelonningPrivacy: LegalDoc = {
           type: "ul",
           items: [
             "**Navn:** visningsnavnet ditt i familien, for eksempel «Mamma».",
-            "**Epostadresse og passord:** brukes til å logge inn. Passordet lagres kryptert (hashet), og verken vi eller andre kan lese det.",
-            "**Innlogging med Apple eller Google:** velger du dette, får vi navnet og epostadressen din og en teknisk identifikator for kontoen. Vi får aldri passordet ditt. Velger du «Skjul epostadressen min» hos Apple, får vi en anonym videresendingsadresse fra Apple i stedet for den ekte adressen.",
+            "**Epostadresse og passord:** brukes til å logge inn. Lager du en konto med epostadressen din, sender vi deg en kode på epost for å bekrefte adressen, og glemmer du passordet, en kode for å velge et nytt. Vi lagrer også hvilket språk appen brukte da du laget kontoen, slik at disse epostene kommer på det språket. Passordet lagres kryptert (hashet), og verken vi eller andre kan lese det.",
+            "**Innlogging med Apple eller Google:** velger du dette, får vi navnet og epostadressen din og en teknisk identifikator for kontoen. Google sender også en lenke til profilbildet ditt hos Google, men den bruker vi ikke. Vi får aldri passordet ditt. Velger du «Skjul epostadressen min» hos Apple, får vi en anonym videresendingsadresse fra Apple i stedet for den ekte adressen. Logger du inn med Apple, lagrer serveren en kode fra Apple, slik at Apple innloggingen kan trekkes tilbake når du sletter kontoen, slik Apple krever.",
             "**Profilbilde,** hvis du velger å legge inn et.",
-            "**Familiens navn og innstillinger,** for eksempel familiepotten og et eventuelt ukentlig påfyll.",
+            "**Familiens navn og innstillinger,** for eksempel familiepotten, om beløpene vises i norske kroner eller amerikanske dollar, og familiens tidssone, som avgjør når en ny dag begynner for oppgavene.",
           ],
         },
         { type: "h3", text: "2.2 Opplysninger om barn" },
@@ -135,7 +135,7 @@ export const minBelonningPrivacy: LegalDoc = {
           type: "ul",
           items: [
             "**Tekniske logger:** når appen kommuniserer med serveren, logger leverandøren vår IP adresse, tidspunkt, type forespørsel og eventuelle feilmeldinger. Loggene brukes bare til drift, feilsøking og sikkerhet.",
-            "**Varslingstoken:** en kode fra Apple eller Google som gjør at vi kan sende varsler til telefonen, og om telefonen er en iPhone eller Android.",
+            "**Varslingstoken:** en kode fra Apple eller Google som gjør at vi kan sende varsler til telefonen, om telefonen er en iPhone eller Android, og hvilket språk appen bruker på telefonen (norsk eller engelsk), slik at varslene kommer på riktig språk.",
             "**Telefonmodell** for telefoner som er koblet til et barn, slik at forelderen ser hvilken telefon som er koblet til.",
             "**Forsøk på å bruke koder:** for å hindre at noen gjetter koder, registrerer vi forsøk på å bruke en kode, med en teknisk identifikator og tidspunkt.",
             "**Hendelseslogg:** viktige handlinger i familien, for eksempel at et barn fjernes eller en telefon kobles fra, registreres med hvem som gjorde det og når. Loggen brukes til sikkerhet.",
@@ -163,7 +163,7 @@ export const minBelonningPrivacy: LegalDoc = {
         { type: "h3", text: "2.7 Opplysninger som bare lagres på telefonen" },
         {
           type: "p",
-          text: "Innloggingen lagres kryptert i telefonens sikre lagring (Keychain på iPhone og Keystore på Android). Appen lagrer også enkelte innstillinger lokalt, som rekorden i spillet og om du har valgt «Senere» på en oppdatering. Dette sendes ikke til oss.",
+          text: "Innloggingen lagres kryptert i telefonens sikre lagring (Keychain på iPhone og Keystore på Android). Appen lagrer også enkelte innstillinger lokalt, som språket du har valgt, rekorden i spillet og om du har valgt «Senere» på en oppdatering. Dette sendes ikke til oss.",
         },
       ],
     },
@@ -181,7 +181,7 @@ export const minBelonningPrivacy: LegalDoc = {
           rows: [
             [
               "Opprette og administrere kontoen og innloggingen",
-              "Navn, epostadresse, passord eller innlogging med Apple eller Google",
+              "Navn, epostadresse, passord eller innlogging med Apple eller Google, og koder på epost for å bekrefte adressen eller velge nytt passord",
               "Avtale, art. 6 nr. 1 bokstav b",
             ],
             [
@@ -195,8 +195,8 @@ export const minBelonningPrivacy: LegalDoc = {
               "Avtale, art. 6 nr. 1 bokstav b, og berettiget interesse, art. 6 nr. 1 bokstav f",
             ],
             [
-              "Sende varsler, for eksempel «Emma er ferdig!» eller «Rydd rommet ble godkjent»",
-              "Varslingstoken, barnets fornavn, oppgavens navn og beløp",
+              "Sende varsler, for eksempel «Emma er ferdig!» eller «Rydd rommet ble godkjent», på språket til hver telefon",
+              "Varslingstoken, språket appen bruker på telefonen, barnets fornavn, oppgavens navn og beløp",
               "Samtykke gitt på telefonen, art. 6 nr. 1 bokstav a",
             ],
             [
@@ -267,7 +267,7 @@ export const minBelonningPrivacy: LegalDoc = {
         },
         {
           type: "p",
-          text: "Forelderen er ansvarlig for barnets bruk av appen og kan når som helst koble fra barnets telefon, fjerne barnet eller slette hele familien. Når et barn fjernes, logges barnets telefoner ut med en gang, og barnets sparemål, varsler og bilder slettes. Barnets fornavn blir stående i familiens belønningshistorikk slik at regnskapet går opp, og slettes sammen med familien.",
+          text: "Forelderen er ansvarlig for barnets bruk av appen og kan når som helst koble fra barnets telefon, fjerne barnet eller slette hele familien. Når et barn fjernes, logges barnets telefoner ut med en gang, og barnets sparemål, varsler og bilder slettes. Den anonyme innloggingen på telefonen slettes automatisk innen to døgn. Barnets fornavn blir stående i familiens belønningshistorikk slik at regnskapet går opp, og slettes sammen med familien.",
         },
         {
           type: "p",
@@ -314,6 +314,12 @@ export const minBelonningPrivacy: LegalDoc = {
           head: ["Leverandør", "Hva de gjør", "Opplysninger", "Hvor"],
           rows: [
             ["[Supabase](https://supabase.com/privacy)", "Server, database, innlogging og bildelagring", "Opplysningene i appen", "Irland (EU)"],
+            [
+              "[Resend](https://resend.com/legal/privacy-policy)",
+              "Sender appens eposter: koder for å bekrefte epostadressen og for å velge nytt passord",
+              "Epostadresse, språket i appen og innholdet i eposten",
+              "EU (Irland). Resend er et selskap i USA",
+            ],
             ["[RevenueCat](https://www.revenuecat.com/privacy)", "Administrerer abonnementet Min Belønning+", "Teknisk identifikator og status for abonnementet", "USA"],
             ["[Expo](https://expo.dev/privacy)", "Leverer pushvarsler og appoppdateringer", "Varslingstoken, varselets tekst, IP adresse ved oppdatering", "USA"],
             ["[Apple](https://www.apple.com/legal/privacy/)", "App Store, kjøp, Sign in with Apple, TestFlight og varsler (APNs)", "Innlogging, kjøp og varslingstoken", "USA og EU"],
@@ -338,7 +344,7 @@ export const minBelonningPrivacy: LegalDoc = {
       id: "overforing",
       title: "8. Overføring til land utenfor EU og EØS",
       paragraphs: [
-        "Databasen, innloggingen og bildene lagres hos Supabase i Irland, innenfor EU. RevenueCat, Expo, Apple og Google kan behandle enkelte opplysninger i USA, som beskrevet i punkt 7.",
+        "Databasen, innloggingen og bildene lagres hos Supabase i Irland, innenfor EU. RevenueCat, Expo, Resend, Apple og Google kan behandle enkelte opplysninger i USA, som beskrevet i punkt 7.",
         "Slike overføringer skjer med gyldig grunnlag etter GDPR kapittel V: Europakommisjonens standard personvernbestemmelser (Standard Contractual Clauses), som er en del av databehandleravtalene, og for virksomheter som er sertifisert, rammeverket Data Privacy Framework mellom EU og USA. Du kan be om en kopi av bestemmelsene ved å kontakte oss.",
       ],
     },
@@ -366,14 +372,26 @@ export const minBelonningPrivacy: LegalDoc = {
               "QR koden virker i 10 minutter og en invitasjon til en foresatt i 15 minutter, og begge kan bare brukes én gang. Koden lagres kryptert og slettes sammen med familien.",
             ],
             ["Forsøk på å bruke koder", "Slettes automatisk etter ett døgn."],
-            ["Varslingstoken", "Til du logger ut, sletter kontoen eller Apple eller Google gjør koden ugyldig."],
+            [
+              "Varslingstoken og språket appen bruker på telefonen",
+              "Til du logger ut, sletter kontoen eller Apple eller Google gjør koden ugyldig. På et barns telefon også når telefonen kobles fra eller barnet fjernes.",
+            ],
+            [
+              "Den anonyme innloggingen på et barns telefon",
+              "Til telefonen kobles fra, barnet fjernes eller familien slettes. Den slettes da automatisk innen to døgn. En telefon som aldri kobles til en familie, slettes på samme måte.",
+            ],
             [
               "Hendelseslogg",
               "Til familien slettes. Sletter en forelder kontoen sin, fjernes den forelderens identifikator fra loggen.",
             ],
             ["Tekniske logger hos Supabase", "I en kort periode etter leverandørens faste rutiner, deretter slettes de automatisk."],
+            [
+              "Eposter fra appen hos Resend",
+              "Resend lagrer en oversikt over hver epost, med adressen og innholdet, i en kort periode etter leverandørens faste rutiner, deretter slettes den automatisk.",
+            ],
             ["Henvendelser på epost", "Så lenge det trengs for å hjelpe deg, og senest 12 måneder etter at saken er avsluttet."],
             ["Kundeopplysninger hos RevenueCat", "Slettes når du sletter kontoen."],
+            ["Koden fra Apple ved innlogging med Apple", "Til du sletter kontoen. Da trekkes Apple innloggingen tilbake, og koden slettes."],
             [
               "Sikkerhetskopier",
               "Opplysninger kan finnes i sikkerhetskopier i en kort periode etter sletting, og slettes automatisk når sikkerhetskopiene fornyes. De brukes bare til å gjenopprette tjenesten etter en feil.",
@@ -397,7 +415,7 @@ export const minBelonningPrivacy: LegalDoc = {
             "All kommunikasjon mellom appen og serveren er kryptert.",
             "Tilgangskontroll i databasen sørger for at hver familie bare ser sine egne opplysninger, og at et barn bare ser det som er ment for barnet.",
             "Serveren bestemmer alle beløp. Appen kan aldri selv endre belønninger eller familiepotten.",
-            "Bilder lagres privat og vises bare gjennom lenker som virker i fem minutter.",
+            "Bilder lagres privat. Bildebevis vises bare gjennom lenker som virker i fem minutter, og profilbilder gjennom lenker som virker i én time.",
             "Passord lagres kryptert, og innloggingen lagres i telefonens sikre lagring.",
             "Koder virker bare én gang og bare i kort tid, lagres kryptert, og antall forsøk er begrenset.",
             "Hemmelige nøkler finnes bare på serveren, aldri i appen.",

@@ -7,7 +7,7 @@ const ADDRESS = ["Berge Media, organization number 933 194 132", "Korsvika 61", 
 export const minBelonningTermsEn: LegalDoc = {
   lang: "en",
   heading: "Terms of Use for My Reward",
-  updated: "Last updated September 28, 2026",
+  updated: "Last updated September 29, 2026",
   toc: true,
   intro: [
     "These terms (the “Terms”) are an agreement between you and Berge Media (“we”, “us” and “our”) about the use of the mobile app My Reward, called Min Belønning in Norwegian (the “App”), and the services that come with it (the “Service”).",
@@ -76,7 +76,7 @@ export const minBelonningTermsEn: LegalDoc = {
       id: "who",
       title: "3. Who can use the App",
       paragraphs: [
-        "The account must be created by a parent or guardian who is 18 or older. Children cannot create their own accounts, but use the App through a family that a parent has created.",
+        "The account must be created by a parent or guardian who is 18 or older. Children cannot create their own accounts, but use the App through a family that a parent has created. The App is offered to families in Norway and the rest of the EU and EEA.",
         "The parent is responsible for making sure that the children’s use of the App follows these Terms, and that it is appropriate for the child to use the App. The App is made for private use within the family and may not be used commercially, for example in daycare centers, schools or clubs, without an agreement with us.",
       ],
     },
@@ -85,7 +85,7 @@ export const minBelonningTermsEn: LegalDoc = {
       title: "4. Your account",
       items: [
         "You must provide correct information and keep it up to date.",
-        "You sign in with an email address and password, or with Apple or Google. You must keep your password to yourself, and you are responsible for what happens with your account.",
+        "You sign in with an email address and password, or with Apple or Google. If you create an account with an email address, you confirm it with a code we send you by email. You must keep your password to yourself, and you are responsible for what happens with your account.",
         "Each account belongs to one person and cannot be shared or transferred.",
         "An account can be a member of one family at a time.",
         "If you suspect that someone else has access to your account, you must change your password and contact us.",
@@ -237,7 +237,7 @@ export const minBelonningTermsEn: LegalDoc = {
       id: "others",
       title: "13. Services from others",
       paragraphs: [
-        `The App uses services from others, including Apple and Google for downloads, purchases, signing in and notifications, RevenueCat for the subscription and Supabase for the server and storage. When you use Apple or Google, their terms also apply. We are not responsible for services from others, but we choose our suppliers with care and have data processing agreements with them. You will find an overview in the ${PRIVACY}.`,
+        `The App uses services from others, including Apple and Google for downloads, purchases, signing in and notifications, RevenueCat for the subscription, Supabase for the server and storage, and Resend for emails. When you use Apple or Google, their terms also apply. We are not responsible for services from others, but we choose our suppliers with care and have data processing agreements with them. You will find an overview in the ${PRIVACY}.`,
       ],
     },
     {

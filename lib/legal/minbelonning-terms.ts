@@ -6,10 +6,10 @@ const ADDRESS = ["Berge Media, org.nr. 933 194 132", "Korsvika 61", "6006 Ålesu
 
 export const minBelonningTerms: LegalDoc = {
   heading: "Vilkår for bruk av Min Belønning",
-  updated: "Sist oppdatert 28. september 2026",
+  updated: "Sist oppdatert 29. september 2026",
   toc: true,
   intro: [
-    "Disse vilkårene («vilkårene») er en avtale mellom deg og Berge Media («vi», «oss» og «vår») om bruk av mobilappen Min Belønning («appen») og tjenestene som hører til den («tjenesten»).",
+    "Disse vilkårene («vilkårene») er en avtale mellom deg og Berge Media («vi», «oss» og «vår») om bruk av mobilappen Min Belønning, som heter My Reward på engelsk («appen») og tjenestene som hører til den («tjenesten»).",
     `Når du oppretter en konto eller bruker appen, godtar du vilkårene. Les dem sammen med ${PRIVACY}, som forklarer hvordan vi behandler personopplysninger. Godtar du ikke vilkårene, skal du ikke bruke appen.`,
     "Vilkårene gjelder i tillegg til lisensavtalen i App Store eller Google Play, avhengig av hvor du lastet ned appen. Apple og Google er ikke parter i disse vilkårene og har ikke ansvar for appen eller innholdet i den.",
   ],
@@ -66,7 +66,7 @@ export const minBelonningTerms: LegalDoc = {
         "**Forelder** eller **foresatt:** en voksen med konto i appen som er medlem av en familie.",
         "**Barn:** et barn som er lagt til i familien av en forelder, og som bruker appen på en telefon som er koblet til familien.",
         "**Innhold:** alt familien legger inn i appen, som navn, bilder, oppgaver og sparemål.",
-        "**Belønning:** et beløp i kroner som registreres i appen når en oppgave godkjennes. Belønningen er virtuell, se [punkt 6](#virtuelle).",
+        "**Belønning:** et beløp som registreres i appen når en oppgave godkjennes. Belønningen er virtuell, se [punkt 6](#virtuelle).",
         "**Familiepotten:** beløpet forelderen setter av i appen, som barna kan tjene fra.",
         "**Min Belønning+:** abonnementet som gir familien flere funksjoner, se [punkt 9](#pris).",
       ],
@@ -75,7 +75,7 @@ export const minBelonningTerms: LegalDoc = {
       id: "hvem",
       title: "3. Hvem kan bruke appen",
       paragraphs: [
-        "Kontoen må opprettes av en forelder eller foresatt som er over 18 år. Barn kan ikke opprette egne kontoer, men bruker appen gjennom en familie som en forelder har laget.",
+        "Kontoen må opprettes av en forelder eller foresatt som er over 18 år. Barn kan ikke opprette egne kontoer, men bruker appen gjennom en familie som en forelder har laget. Appen tilbys familier i Norge og resten av EU og EØS.",
         "Forelderen er ansvarlig for at barnas bruk av appen er i tråd med disse vilkårene, og for at det er greit for barnet å bruke appen. Appen er laget for privat bruk i familien og kan ikke brukes i næringsvirksomhet, for eksempel i barnehager, skoler eller klubber, uten avtale med oss.",
       ],
     },
@@ -84,7 +84,7 @@ export const minBelonningTerms: LegalDoc = {
       title: "4. Kontoen din",
       items: [
         "Du må oppgi riktige opplysninger og holde dem oppdatert.",
-        "Du logger inn med epostadresse og passord, eller med Apple eller Google. Passordet ditt skal du holde for deg selv, og du er ansvarlig for det som skjer med kontoen din.",
+        "Du logger inn med epostadresse og passord, eller med Apple eller Google. Lager du en konto med epostadressen din, bekrefter du den med en kode vi sender deg på epost. Passordet ditt skal du holde for deg selv, og du er ansvarlig for det som skjer med kontoen din.",
         "Hver konto tilhører én person og kan ikke deles eller overdras.",
         "En konto kan være medlem av én familie om gangen.",
         "Mistenker du at noen andre har tilgang til kontoen din, må du endre passordet og kontakte oss.",
@@ -111,7 +111,8 @@ export const minBelonningTerms: LegalDoc = {
             "Appen flytter ingen penger, er ingen bank og er ikke en betalingstjeneste. Belønningene gir ingen renter og kan ikke løses inn hos oss.",
             "Det er forelderen som bestemmer om, når og hvordan belønningene betales ut, for eksempel med Vipps, bank eller kontanter, utenfor appen.",
             "Avtaler om belønninger er mellom forelderen og barnet. Vi er ikke part i slike avtaler og har ikke ansvar for dem.",
-            "Beløp registreres i hele kroner. Familiepotten kan ha et øvre tak, som vises i appen.",
+            "Familien velger om beløpene vises i norske kroner eller amerikanske dollar, og kan endre dette i appen når som helst. Valget endrer bare hvordan beløpene vises. Ingen penger veksles eller flyttes.",
+            "Beløp registreres i hele kroner, eller i dollar med én desimal. Familiepotten kan ha et øvre tak, som vises i appen.",
           ],
         },
       ],
@@ -172,12 +173,12 @@ export const minBelonningTerms: LegalDoc = {
         { type: "h3", text: "9.1 Gratisversjonen" },
         {
           type: "p",
-          text: "Appen kan brukes gratis. Per i dag kan en familie i gratisversjonen blant annet ha opptil 3 aktive og 5 lagrede oppgaver, ett sparemål per barn og én forelder, og se de siste 30 hendelsene i historikken. Gjeldende grenser vises i appen.",
+          text: "Appen kan brukes gratis. Per i dag kan en familie i gratisversjonen blant annet ha opptil 3 barn, 3 aktive og 5 lagrede oppgaver, ett sparemål per barn og én forelder, og se de nyeste hendelsene på forsiden. Gjeldende grenser vises i appen.",
         },
         { type: "h3", text: "9.2 Min Belønning+" },
         {
           type: "p",
-          text: "Min Belønning+ gjelder for hele familien. Per i dag gir abonnementet blant annet opptil 20 aktive og 50 lagrede oppgaver, faste oppgaver som gjentas, bildebevis, beskrivelse og sjekkliste på oppgaver, flere sparemål per barn, flere foresatte i familien, familieoversikt og hele historikken.",
+          text: "Min Belønning+ gjelder for hele familien. Per i dag gir abonnementet blant annet plass til opptil 10 barn, opptil 20 aktive og 50 lagrede oppgaver, faste oppgaver som gjentas, bildebevis, beskrivelse og sjekkliste på oppgaver, flere sparemål per barn, flere foresatte i familien, familieoversikt og hele historikken.",
         },
         { type: "h3", text: "9.3 Pris, betaling og fornyelse" },
         {
@@ -228,14 +229,14 @@ export const minBelonningTerms: LegalDoc = {
       id: "rettigheter",
       title: "12. Rettigheter til appen",
       paragraphs: [
-        "Appen, navnet Min Belønning, logoen, illustrasjonene, designet og koden tilhører Berge Media eller våre lisensgivere og er beskyttet av opphavsrett og andre rettigheter. Du får en personlig, begrenset rett til å bruke appen til privat bruk i familien, så lenge du følger disse vilkårene. Retten kan ikke overdras.",
+        "Appen, navnene Min Belønning og My Reward, logoene, illustrasjonene, designet og koden tilhører Berge Media eller våre lisensgivere og er beskyttet av opphavsrett og andre rettigheter. Du får en personlig, begrenset rett til å bruke appen til privat bruk i familien, så lenge du følger disse vilkårene. Retten kan ikke overdras.",
       ],
     },
     {
       id: "tredjepart",
       title: "13. Tjenester fra andre",
       paragraphs: [
-        `Appen bruker tjenester fra andre, blant annet Apple og Google for nedlasting, kjøp, innlogging og varsler, RevenueCat for abonnementet og Supabase for server og lagring. Når du bruker Apple eller Google, gjelder også deres vilkår. Vi har ikke ansvar for tjenester fra andre, men vi velger leverandører med omhu og har databehandleravtaler med dem. Du finner en oversikt i ${PRIVACY}.`,
+        `Appen bruker tjenester fra andre, blant annet Apple og Google for nedlasting, kjøp, innlogging og varsler, RevenueCat for abonnementet, Supabase for server og lagring og Resend for eposter. Når du bruker Apple eller Google, gjelder også deres vilkår. Vi har ikke ansvar for tjenester fra andre, men vi velger leverandører med omhu og har databehandleravtaler med dem. Du finner en oversikt i ${PRIVACY}.`,
       ],
     },
     {

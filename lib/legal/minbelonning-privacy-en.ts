@@ -2,12 +2,12 @@ import type { LegalDoc } from "../apps";
 
 const EMAIL = "[hei@bergeprod.no](mailto:hei@bergeprod.no)";
 const SUPPORT = "[apps.bergeprod.no/minbelonning/support](https://apps.bergeprod.no/minbelonning/support)";
-const ADDRESS = ["Berge Media", "Korsvika 61", "6006 Ålesund", "Norway"];
+const ADDRESS = ["Berge Media, organization number 933 194 132", "Korsvika 61", "6006 Ålesund", "Norway"];
 
 export const minBelonningPrivacyEn: LegalDoc = {
   lang: "en",
   heading: "Privacy Policy for My Reward",
-  updated: "Last updated September 28, 2026",
+  updated: "Last updated September 29, 2026",
   toc: true,
   intro: [
     "This Privacy Policy applies to the mobile app My Reward, called Min Belønning in Norwegian (the “App”), and the services that come with it (the “Services”). The Services are provided by Berge Media (“we”, “us” and “our”).",
@@ -81,10 +81,10 @@ export const minBelonningPrivacyEn: LegalDoc = {
           type: "ul",
           items: [
             "**Name:** your display name in the family, for example “Mom”.",
-            "**Email address and password:** used to sign in. The password is stored encrypted (hashed), and neither we nor anyone else can read it.",
+            "**Email address and password:** used to sign in. If you create an account with your email address, we send you a code by email to confirm the address, and if you forget your password, a code to choose a new one. We also store which language the App used when you created the account, so these emails come in that language. The password is stored encrypted (hashed), and neither we nor anyone else can read it.",
             "**Sign in with Apple or Google:** if you choose this, we receive your name, your email address and a technical identifier for the account. Google also sends a link to your Google profile photo, but we do not use it. We never receive your password. If you choose “Hide My Email” with Apple, we receive an anonymous forwarding address from Apple instead of your real address. If you sign in with Apple, the server stores a code from Apple so that the Apple sign in can be revoked when you delete your account, as Apple requires.",
             "**Profile photo,** if you choose to add one.",
-            "**The family’s name and settings,** for example the family pot and whether amounts are shown in Norwegian kroner or US dollars.",
+            "**The family’s name and settings,** for example the family pot, whether amounts are shown in Norwegian kroner or US dollars, and the family’s time zone, which decides when a new day starts for the chores.",
           ],
         },
         { type: "h3", text: "2.2 Data about children" },
@@ -182,7 +182,7 @@ export const minBelonningPrivacyEn: LegalDoc = {
           rows: [
             [
               "Creating and managing the account and sign in",
-              "Name, email address, password or sign in with Apple or Google",
+              "Name, email address, password or sign in with Apple or Google, and codes sent by email to confirm the address or choose a new password",
               "Contract, Art. 6(1)(b)",
             ],
             [
@@ -264,7 +264,7 @@ export const minBelonningPrivacyEn: LegalDoc = {
         },
         {
           type: "p",
-          text: "The parent is responsible for the child’s use of the App and can at any time disconnect the child’s phone, remove the child or delete the whole family. When a child is removed, the child’s phones are signed out right away, and the child’s savings goals, notifications and photos are deleted. The child’s first name remains in the family’s reward history so that the records add up, and it is deleted together with the family.",
+          text: "The parent is responsible for the child’s use of the App and can at any time disconnect the child’s phone, remove the child or delete the whole family. When a child is removed, the child’s phones are signed out right away, and the child’s savings goals, notifications and photos are deleted. The anonymous sign in on the phone is deleted automatically within two days. The child’s first name remains in the family’s reward history so that the records add up, and it is deleted together with the family.",
         },
         {
           type: "p",
@@ -311,6 +311,12 @@ export const minBelonningPrivacyEn: LegalDoc = {
           head: ["Supplier", "What they do", "Data", "Where"],
           rows: [
             ["[Supabase](https://supabase.com/privacy)", "Server, database, sign in and photo storage", "The data in the App", "Ireland (EU)"],
+            [
+              "[Resend](https://resend.com/legal/privacy-policy)",
+              "Sends the App’s emails: codes to confirm your email address and to choose a new password",
+              "Email address, the language of the App and the content of the email",
+              "EU (Ireland). Resend is a company in the USA",
+            ],
             ["[RevenueCat](https://www.revenuecat.com/privacy)", "Manages the My Reward+ subscription", "Technical identifier and subscription status", "USA"],
             ["[Expo](https://expo.dev/privacy)", "Delivers push notifications and app updates", "Notification token, the text of the notification, IP address for updates", "USA"],
             ["[Apple](https://www.apple.com/legal/privacy/)", "App Store, purchases, Sign in with Apple, TestFlight and notifications (APNs)", "Sign in, purchases and notification token", "USA and EU"],
@@ -335,7 +341,7 @@ export const minBelonningPrivacyEn: LegalDoc = {
       id: "transfers",
       title: "8. Transfers outside the EU and EEA",
       paragraphs: [
-        "The database, sign in and photos are stored with Supabase in Ireland, within the EU. RevenueCat, Expo, Apple and Google may process some data in the USA, as described in section 7.",
+        "The database, sign in and photos are stored with Supabase in Ireland, within the EU. RevenueCat, Expo, Resend, Apple and Google may process some data in the USA, as described in section 7.",
         "Such transfers take place on a valid basis under Chapter V of the GDPR: the European Commission’s Standard Contractual Clauses, which are part of the data processing agreements, and, for certified companies, the Data Privacy Framework between the EU and the USA. You can request a copy of the clauses by contacting us.",
       ],
     },
@@ -365,7 +371,11 @@ export const minBelonningPrivacyEn: LegalDoc = {
             ["Attempts to use codes", "Deleted automatically after one day."],
             [
               "Notification token and the phone’s app language",
-              "Until you sign out, delete your account, or Apple or Google makes the code invalid.",
+              "Until you sign out, delete your account, or Apple or Google makes the code invalid. On a child’s phone, also when the phone is disconnected or the child is removed.",
+            ],
+            [
+              "The anonymous sign in on a child’s phone",
+              "Until the phone is disconnected, the child is removed or the family is deleted. It is then deleted automatically within two days. A phone that never connects to a family is deleted in the same way.",
             ],
             [
               "Event log",
@@ -374,6 +384,10 @@ export const minBelonningPrivacyEn: LegalDoc = {
             [
               "Technical logs at Supabase",
               "For a short period according to the supplier’s standard routines, after which they are deleted automatically.",
+            ],
+            [
+              "Emails from the App at Resend",
+              "Resend keeps a record of each email, with the address and the content, for a short period according to its standard routines, after which it is deleted automatically.",
             ],
             ["Email inquiries", "For as long as needed to help you, and no later than 12 months after the matter is closed."],
             ["Customer data at RevenueCat", "Deleted when you delete your account."],
@@ -404,7 +418,7 @@ export const minBelonningPrivacyEn: LegalDoc = {
             "All communication between the App and the server is encrypted.",
             "Access control in the database ensures that each family only sees its own data, and that a child only sees what is meant for the child.",
             "The server decides all amounts. The App can never change rewards or the family pot on its own.",
-            "Photos are stored privately and are only shown through links that work for five minutes.",
+            "Photos are stored privately. Photo proof is only shown through links that work for five minutes, and profile photos through links that work for one hour.",
             "Passwords are stored encrypted, and the sign in is stored in the phone’s secure storage.",
             "Codes only work once and only for a short time, are stored encrypted, and the number of attempts is limited.",
             "Secret keys exist only on the server, never in the App.",
