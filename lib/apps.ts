@@ -267,9 +267,10 @@ export const apps: App[] = [
     stats: [
       { value: "Familie", label: "Kategori" },
       { value: "49 kr/mnd", label: "Min Belønning+" },
-      { value: "Kommer snart", label: "Status" },
+      { value: "Ute nå", label: "Status" },
     ],
     accent: "#ff3d9a",
+    appStoreUrl: "https://apps.apple.com/no/app/min-bel%C3%B8nning/id6816745532?l=nb",
     icon: "/apps/minbelonning-icon.jpg",
     logo: "/apps/minbelonning-logo.png",
     screenshots: [
