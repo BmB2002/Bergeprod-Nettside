@@ -277,7 +277,7 @@ export const apps: App[] = [
       "/apps/minbelonning-earned.jpg",
       "/apps/minbelonning-leaderboard.jpg",
     ],
-    heroScreenshots: ["/apps/minbelonning-parent-home.jpg", "/apps/minbelonning-earned.jpg"],
+    heroScreenshots: ["/apps/minbelonning-welcome.jpg", "/apps/minbelonning-earned.jpg"],
     highlights: [
       { label: "Enkelt å bruke", icon: "check", color: "#ff4fa3" },
       { label: "For hele familien", icon: "family", color: "#3ddc6a" },
