@@ -43,6 +43,8 @@ export type SupportInfo = {
 
 export type Platform = "ios" | "android" | "web" | "windows";
 
+export type FeatureIcon = "clipboard" | "check" | "family" | "coins" | "heart" | "star" | "shield";
+
 export type App = {
   slug: string;
   name: string;
@@ -53,7 +55,6 @@ export type App = {
   platforms: Platform[];
   description: string;
   features: string[];
-  stats: { value: string; label: string }[];
   accent: string;
   icon?: string;
   // Wordmark shown on the app's own page
@@ -65,10 +66,15 @@ export type App = {
   googlePlayUrl?: string;
   // First one is used on the overview card, first two in the app page hero
   screenshots: string[];
+  // App page extras: the two hero phones, the icon row under the store badge,
+  // the step cards and the audience cards with a phone peeking out
+  heroScreenshots?: string[];
+  highlights?: { label: string; icon: FeatureIcon; color: string }[];
+  steps?: { title: string; text: string; icon: FeatureIcon; color: string }[];
+  audiences?: { eyebrow: string; heading: string; items: string[]; screenshot: string; color: string }[];
   about?: {
     paragraphs: string[];
-    sections: { title: string; items: string[] }[];
-    note?: string;
+    sections: { title: string; items: string[]; icon?: FeatureIcon; color?: string; note?: string }[];
   };
   contactEmail: string;
   support: SupportInfo;
@@ -94,11 +100,6 @@ export const apps: App[] = [
       "Flerspiller med kode — opptil 20 spillere",
       "Flaskepost: send slurker til venner og fremmede",
       "Spill som Bomben, You!, Profilen og Grønt lys",
-    ],
-    stats: [
-      { value: "4,9 ★", label: "App Store" },
-      { value: "16+", label: "Aldersgrense" },
-      { value: "iOS & Android", label: "Plattform" },
     ],
     accent: "#ff6a1a",
     icon: "/apps/donk-icon.jpg",
@@ -264,11 +265,6 @@ export const apps: App[] = [
       "Barna trykker «Jeg er ferdig!», og du godkjenner med ett trykk",
       "Sparemål, toppliste og feiring for barna",
     ],
-    stats: [
-      { value: "Familie", label: "Kategori" },
-      { value: "49 kr/mnd", label: "Min Belønning+" },
-      { value: "Ute nå", label: "Status" },
-    ],
     accent: "#ff3d9a",
     appStoreUrl: "https://apps.apple.com/no/app/min-bel%C3%B8nning/id6816745532?l=nb",
     icon: "/apps/minbelonning-icon.jpg",
@@ -281,41 +277,75 @@ export const apps: App[] = [
       "/apps/minbelonning-earned.jpg",
       "/apps/minbelonning-leaderboard.jpg",
     ],
+    heroScreenshots: ["/apps/minbelonning-parent-home.jpg", "/apps/minbelonning-earned.jpg"],
+    highlights: [
+      { label: "Enkelt å bruke", icon: "check", color: "#ff4fa3" },
+      { label: "For hele familien", icon: "family", color: "#3ddc6a" },
+      { label: "Motiverer barna", icon: "coins", color: "#ffc21a" },
+      { label: "Ryddigere hverdag", icon: "heart", color: "#b36bff" },
+    ],
+    steps: [
+      {
+        title: "Lag oppgaver",
+        text: "Bestem hva oppgaven er verdt, for eksempel 30 kr for å rydde rommet.",
+        icon: "clipboard",
+        color: "#ff4fa3",
+      },
+      {
+        title: "Velg hvem",
+        text: "Gi den til ett barn, til alle, eller la den som er først ta den.",
+        icon: "family",
+        color: "#3ddc6a",
+      },
+      {
+        title: "Barna gjør dem",
+        text: "Barnet trykker «Jeg er ferdig!», og du får beskjed.",
+        icon: "check",
+        color: "#ffb21a",
+      },
+      {
+        title: "Godkjenn",
+        text: "Du godkjenner, og barnet får en skikkelig feiring på skjermen.",
+        icon: "star",
+        color: "#b36bff",
+      },
+    ],
+    audiences: [
+      {
+        eyebrow: "For foreldre",
+        heading: "Få en ryddigere hverdag",
+        items: [
+          "Familiepotten viser hva barna kan tjene. Når du godkjenner, flyttes beløpet fra potten til barnet.",
+          "Du ser alltid hva hvert barn har tjent og hva som er betalt ut.",
+          "Ikke helt ferdig? Send oppgaven tilbake, så får barnet beskjed om å prøve igjen.",
+          "Du betaler ut selv, slik dere pleier, og markerer det i appen.",
+        ],
+        screenshot: "/apps/minbelonning-new-task.jpg",
+        color: "#ff4fa3",
+      },
+      {
+        eyebrow: "For barna",
+        heading: "Gjør husarbeid gøy",
+        items: [
+          "Egen oversikt over dagens oppgaver",
+          "Sparemål som viser hvor langt de har kommet",
+          "Feiring med mynter og jubel hver gang en oppgave blir godkjent",
+          "Toppliste for uken, måneden og totalt",
+          "Et lite spill å kose seg med",
+        ],
+        screenshot: "/apps/minbelonning-leaderboard.jpg",
+        color: "#ffc21a",
+      },
+    ],
     about: {
       paragraphs: [
         "Ingen lister på kjøleskapet, ingen masing og ingen krangling om hva som ble lovet. Alt står i appen, for både deg og barna.",
       ],
       sections: [
         {
-          title: "Slik fungerer det",
-          items: [
-            "Lag en oppgave og bestem hva den er verdt, for eksempel 30 kr for å rydde rommet.",
-            "Gi den til ett barn, til alle, eller la den som er først ta den.",
-            "Barnet trykker «Jeg er ferdig!», og du får beskjed.",
-            "Du godkjenner, og barnet får en skikkelig feiring på skjermen.",
-          ],
-        },
-        {
-          title: "For barna",
-          items: [
-            "Egen oversikt over dagens oppgaver",
-            "Sparemål som viser hvor langt de har kommet",
-            "Feiring med mynter og jubel hver gang en oppgave blir godkjent",
-            "Toppliste for uken, måneden og totalt",
-            "Et lite spill å kose seg med",
-          ],
-        },
-        {
-          title: "For deg som forelder",
-          items: [
-            "Familiepotten viser hva barna kan tjene. Når du godkjenner, flyttes beløpet fra potten til barnet.",
-            "Du ser alltid hva hvert barn har tjent og hva som er betalt ut.",
-            "Ikke helt ferdig? Send oppgaven tilbake, så får barnet beskjed om å prøve igjen.",
-            "Du betaler ut selv, slik dere pleier, og markerer det i appen.",
-          ],
-        },
-        {
           title: "Trygt for barna",
+          icon: "shield",
+          color: "#3ddc6a",
           items: [
             "Barnet kobler til sin egen telefon ved å skanne en kode på telefonen din. Barna lager ingen konto og trenger verken passord eller epostadresse.",
             "Bilder lagres privat, og bare familien kan se dem.",
@@ -325,6 +355,8 @@ export const apps: App[] = [
         },
         {
           title: "Min Belønning+",
+          icon: "star",
+          color: "#ffc21a",
           items: [
             "Opptil 20 aktive og 50 lagrede oppgaver",
             "Faste oppgaver som dukker opp av seg selv hver dag eller uke",
@@ -333,9 +365,9 @@ export const apps: App[] = [
             "Flere sparemål per barn og flere foresatte i familien",
             "Familieoversikt og hele historikken",
           ],
+          note: "Min Belønning+ koster 49 kr i måneden eller 399 kr i året. Abonnementet fornyes automatisk og trekkes fra kontoen din i App Store. Du kan si det opp når som helst i innstillingene for App Store, senest 24 timer før neste periode starter.",
         },
       ],
-      note: "Min Belønning+ koster 49 kr i måneden eller 399 kr i året. Abonnementet fornyes automatisk og trekkes fra kontoen din i App Store. Du kan si det opp når som helst i innstillingene for App Store, senest 24 timer før neste periode starter.",
     },
     contactEmail: "hei@bergeprod.no",
     support: {
