@@ -94,6 +94,80 @@ function AppCard({ app, index }: { app: App; index: number }) {
   );
 }
 
+// Placeholder cards that hint at more apps on the way
+const upcoming = [
+  { title: "Neste app", text: "Noe nytt er under utvikling. Mer om det snart.", accent: "#4f8cff" },
+  { title: "Flere på vei", text: "Flere idéer står på tegnebrettet og blir til apper etter hvert.", accent: "#a66bff" },
+];
+
+function ComingSoonCard({ title, text, accent, index }: { title: string; text: string; accent: string; index: number }) {
+  return (
+    <motion.article
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "0px 0px -80px 0px" }}
+      variants={{
+        hidden: { opacity: 0, y: 40 },
+        show: { opacity: 1, y: 0, transition: { duration: 0.9, delay: (index % 2) * 0.12, ease } },
+      }}
+      className="relative overflow-hidden rounded-[1.25rem] border border-dashed border-white/[0.14] sm:h-[400px]"
+      style={{
+        background: [
+          `radial-gradient(90% 80% at 88% 0%, ${accent}26 0%, transparent 62%)`,
+          "linear-gradient(180deg, rgba(255,255,255,0.015) 0%, rgba(0,0,0,0.3) 100%)",
+          "#121315",
+        ].join(", "),
+      }}
+    >
+      <div className="relative z-10 flex flex-col p-7 sm:h-full sm:max-w-[54%] sm:p-8">
+        <div className="flex items-start gap-4">
+          <div
+            className="grid h-20 w-20 shrink-0 place-items-center rounded-[22%] border border-dashed md:h-24 md:w-24"
+            style={{ borderColor: `${accent}55`, background: `${accent}12`, color: accent }}
+          >
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+          </div>
+          <span
+            className="mt-1 rounded-full border px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em]"
+            style={{ color: accent, borderColor: `${accent}55`, background: `${accent}14` }}
+          >
+            Kommer snart
+          </span>
+        </div>
+        <h2 className="mt-5 text-[1.9rem] font-bold leading-tight tracking-tight text-white/85">{title}</h2>
+        <p className="mt-2 text-[15px] leading-relaxed text-white/50">{text}</p>
+        <span className="mt-6 inline-flex w-fit items-center gap-2 text-sm font-medium text-white/40 sm:mt-auto">
+          <span className="h-1.5 w-1.5 animate-pulse rounded-full" style={{ background: accent }} />
+          Under utvikling
+        </span>
+      </div>
+
+      {/* Empty phone with loading bars */}
+      <motion.div
+        aria-hidden
+        variants={{
+          hidden: { opacity: 0, y: 80, rotate: 4 },
+          show: { opacity: 1, y: 0, rotate: 12, transition: { duration: 1.2, delay: 0.2 + (index % 2) * 0.12, ease } },
+        }}
+        className="pointer-events-none relative -mb-32 mt-2 flex justify-center opacity-60 sm:absolute sm:right-[7%] sm:top-6 sm:m-0"
+      >
+        <div className="w-[210px] rounded-[16%/7.4%] border border-white/15 bg-white/[0.03] p-[2.4%] xl:w-[235px]">
+          <div className="relative aspect-[640/1385] overflow-hidden rounded-[13%/6%] border border-white/10 bg-black/40 p-[10%] pt-[22%]">
+            <div className="absolute left-1/2 top-[2%] h-[3.4%] w-[30%] -translate-x-1/2 rounded-full bg-white/10" />
+            <div className="h-[9%] w-2/3 animate-pulse rounded-lg" style={{ background: `${accent}33` }} />
+            <div className="mt-[8%] h-[22%] animate-pulse rounded-2xl bg-white/[0.06]" />
+            <div className="mt-[8%] h-[7%] w-full animate-pulse rounded-lg bg-white/[0.06]" />
+            <div className="mt-[5%] h-[7%] w-5/6 animate-pulse rounded-lg bg-white/[0.06]" />
+            <div className="mt-[5%] h-[7%] w-4/6 animate-pulse rounded-lg bg-white/[0.06]" />
+          </div>
+        </div>
+      </motion.div>
+    </motion.article>
+  );
+}
+
 export default function AppsShowcase({ apps }: { apps: App[] }) {
   return (
     <>
@@ -101,6 +175,9 @@ export default function AppsShowcase({ apps }: { apps: App[] }) {
       <section className="mx-auto grid max-w-7xl gap-5 px-4 pb-10 md:px-8 lg:grid-cols-2">
         {apps.map((app, i) => (
           <AppCard key={app.slug} app={app} index={i} />
+        ))}
+        {upcoming.map((u, i) => (
+          <ComingSoonCard key={u.title} {...u} index={apps.length + i} />
         ))}
       </section>
     </>
