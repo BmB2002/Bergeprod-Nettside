@@ -61,6 +61,8 @@ export type App = {
   logo?: string;
   // If set, the project card and /<slug> go here instead of the app's own page
   projectUrl?: string;
+  // Support and legal pages use the app's own light look instead of the dark BERGE frame
+  lightTheme?: boolean;
   website?: string;
   appStoreUrl?: string;
   googlePlayUrl?: string;
@@ -266,6 +268,7 @@ export const apps: App[] = [
       "Sparemål, toppliste og feiring for barna",
     ],
     accent: "#ff3d9a",
+    lightTheme: true,
     appStoreUrl: "https://apps.apple.com/no/app/min-bel%C3%B8nning/id6816745532?l=nb",
     icon: "/apps/minbelonning-icon.jpg",
     logo: "/apps/minbelonning-logo.png",

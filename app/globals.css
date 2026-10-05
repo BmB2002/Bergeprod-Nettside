@@ -10,6 +10,58 @@
 
 :root {
   color-scheme: dark;
+
+  /* Colors for the app support and legal pages (DocShell, LegalPage). Dark by default,
+     .doc-light switches them to an app's own light look. */
+  --doc-fg: #ffffff;
+  --doc-text: rgba(255, 255, 255, 0.75);
+  --doc-body: rgba(255, 255, 255, 0.65);
+  --doc-soft: rgba(255, 255, 255, 0.55);
+  --doc-muted: rgba(255, 255, 255, 0.45);
+  --doc-faint: rgba(255, 255, 255, 0.3);
+  --doc-line: rgba(255, 255, 255, 0.08);
+  --doc-line-strong: rgba(255, 255, 255, 0.15);
+  --doc-hover-line: rgba(255, 255, 255, 0.4);
+  --doc-panel: rgba(255, 255, 255, 0.03);
+  --doc-inset: rgba(0, 0, 0, 0.25);
+  --doc-chip: rgba(0, 0, 0, 0.35);
+  --doc-head: rgba(255, 255, 255, 0.05);
+  --doc-active-bg: #ffffff;
+  --doc-active-fg: #000000;
+}
+
+.doc-light {
+  color-scheme: light;
+  --doc-fg: #232650;
+  --doc-text: rgba(35, 38, 80, 0.85);
+  --doc-body: rgba(35, 38, 80, 0.78);
+  --doc-soft: rgba(35, 38, 80, 0.68);
+  --doc-muted: rgba(35, 38, 80, 0.58);
+  --doc-faint: rgba(35, 38, 80, 0.35);
+  --doc-line: rgba(35, 38, 80, 0.1);
+  --doc-line-strong: rgba(35, 38, 80, 0.16);
+  --doc-hover-line: rgba(35, 38, 80, 0.4);
+  --doc-panel: #ffffff;
+  --doc-inset: #fdf7ec;
+  --doc-chip: #ffffff;
+  --doc-head: #fdf3e0;
+  --doc-active-bg: #2e9a52;
+  --doc-active-fg: #ffffff;
+}
+
+/* Sheen sweeping across the Min Belønning App Store button every few seconds */
+@keyframes mb-shine {
+  0%, 60% { transform: translateX(0) skewX(-12deg); }
+  100% { transform: translateX(450%) skewX(-12deg); }
+}
+.mb-shine { animation: mb-shine 3.6s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .mb-shine { animation: none; display: none; }
+}
+
+.doc-light ::selection {
+  background: #232650;
+  color: #ffffff;
 }
 
 html {

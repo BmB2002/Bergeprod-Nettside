@@ -17,7 +17,7 @@ const ui: Record<Lang, { short: string; toc: string; question: string; soon: str
   },
 };
 
-const linkClass = "text-white underline decoration-white/30 underline-offset-4 transition-colors hover:decoration-white";
+const linkClass = "text-(color:--doc-fg) underline decoration-(color:--doc-faint) underline-offset-4 transition-colors hover:decoration-(color:--doc-fg)";
 
 // Renders **bold** and [label](href) inside a plain string
 function Rich({ text }: { text: string }) {
@@ -26,7 +26,7 @@ function Rich({ text }: { text: string }) {
     <>
       {parts.map((part, i) => {
         const bold = part.match(/^\*\*([^*]+)\*\*$/);
-        if (bold) return <strong key={i} className="font-semibold text-white">{bold[1]}</strong>;
+        if (bold) return <strong key={i} className="font-semibold text-(color:--doc-fg)">{bold[1]}</strong>;
         const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
         if (link) {
           const external = link[2].startsWith("http");
@@ -47,7 +47,7 @@ function Rich({ text }: { text: string }) {
   );
 }
 
-const body = "text-[15px] leading-relaxed text-white/65 md:text-base";
+const body = "text-[15px] leading-relaxed text-(color:--doc-body) md:text-base";
 
 function Block({ block, accent, lang }: { block: LegalBlock; accent: string; lang: Lang }) {
   switch (block.type) {
@@ -56,7 +56,7 @@ function Block({ block, accent, lang }: { block: LegalBlock; accent: string; lan
     case "short":
       return (
         <p
-          className="mt-4 rounded-xl border px-4 py-3 text-[15px] leading-relaxed text-white/85"
+          className="mt-4 rounded-xl border px-4 py-3 text-[15px] leading-relaxed text-(color:--doc-text)"
           style={{ borderColor: `${accent}40`, background: `${accent}12` }}
         >
           <strong className="font-semibold" style={{ color: accent }}>{ui[lang].short} </strong>
@@ -65,7 +65,7 @@ function Block({ block, accent, lang }: { block: LegalBlock; accent: string; lan
       );
     case "ul":
       return (
-        <ul className={`mt-3 list-disc space-y-2 pl-5 marker:text-white/30 ${body}`}>
+        <ul className={`mt-3 list-disc space-y-2 pl-5 marker:text-(color:--doc-faint) ${body}`}>
           {block.items.map((item, i) => (
             <li key={i}><Rich text={item} /></li>
           ))}
@@ -73,26 +73,26 @@ function Block({ block, accent, lang }: { block: LegalBlock; accent: string; lan
       );
     case "h3":
       return (
-        <h3 id={block.id} className="mt-8 scroll-mt-8 text-base font-semibold text-white md:text-[17px]">
+        <h3 id={block.id} className="mt-8 scroll-mt-8 text-base font-semibold text-(color:--doc-fg) md:text-[17px]">
           {block.text}
         </h3>
       );
     case "table":
       return (
-        <div className="mt-4 overflow-x-auto rounded-xl border border-white/[0.08]">
+        <div className="mt-4 overflow-x-auto rounded-xl border border-(color:--doc-line)">
           <table className="w-full min-w-[520px] border-collapse text-left text-sm leading-relaxed">
             <thead>
-              <tr className="bg-white/[0.05]">
+              <tr className="bg-(color:--doc-head)">
                 {block.head.map((h) => (
-                  <th key={h} className="px-4 py-3 font-semibold text-white">{h}</th>
+                  <th key={h} className="px-4 py-3 font-semibold text-(color:--doc-fg)">{h}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
               {block.rows.map((row, r) => (
-                <tr key={r} className="border-t border-white/[0.06] align-top">
+                <tr key={r} className="border-t border-(color:--doc-line) align-top">
                   {row.map((cell, c) => (
-                    <td key={c} className="px-4 py-3 text-white/65"><Rich text={cell} /></td>
+                    <td key={c} className="px-4 py-3 text-(color:--doc-body)"><Rich text={cell} /></td>
                   ))}
                 </tr>
               ))}
@@ -113,7 +113,7 @@ function Block({ block, accent, lang }: { block: LegalBlock; accent: string; lan
         <dl className="mt-4 space-y-4">
           {block.items.map((item) => (
             <div key={item.q}>
-              <dt className="text-[15px] font-semibold text-white md:text-base">{item.q}</dt>
+              <dt className="text-[15px] font-semibold text-(color:--doc-fg) md:text-base">{item.q}</dt>
               <dd className={`mt-1 ${body}`}><Rich text={item.a} /></dd>
             </div>
           ))}
@@ -125,12 +125,12 @@ function Block({ block, accent, lang }: { block: LegalBlock; accent: string; lan
 function Section({ section, accent, lang }: { section: LegalSection; accent: string; lang: Lang }) {
   const content = (
     <>
-      <h2 className="text-lg font-semibold text-white md:text-xl">{section.title}</h2>
+      <h2 className="text-lg font-semibold text-(color:--doc-fg) md:text-xl">{section.title}</h2>
       {section.paragraphs?.map((p, i) => (
         <p key={i} className={`mt-3 ${body}`}><Rich text={p} /></p>
       ))}
       {section.items && (
-        <ul className={`mt-3 list-disc space-y-2 pl-5 marker:text-white/30 ${body}`}>
+        <ul className={`mt-3 list-disc space-y-2 pl-5 marker:text-(color:--doc-faint) ${body}`}>
           {section.items.map((item, i) => (
             <li key={i}><Rich text={item} /></li>
           ))}
@@ -174,7 +174,7 @@ export default function LegalPage({
       const fallback = { no: { privacy: "Personvernerklæring", terms: "Brukervilkår" }, en: { privacy: "Privacy Policy", terms: "Terms of Use" } };
       return (
         <DocShell app={app} kind={kind} lang={l} heading={fallback[l][kind]}>
-          <p className="text-base text-white/60">{ui[l].soon}</p>
+          <p className="text-base text-(color:--doc-soft)">{ui[l].soon}</p>
         </DocShell>
       );
     }
@@ -199,12 +199,12 @@ export function LegalBody({ doc, accent, contactEmail }: { doc: LegalDoc; accent
   const summaryIndex = doc.sections.findIndex((s) => s.summary);
 
   const toc = tocSections.length > 0 && (
-    <nav aria-label={ui[lang].toc} className="rounded-[1.25rem] border border-white/[0.08] bg-black/25 p-6 sm:p-8">
-      <h2 className="text-[11px] font-medium uppercase tracking-[0.35em] text-white/45">{ui[lang].toc}</h2>
+    <nav aria-label={ui[lang].toc} className="rounded-[1.25rem] border border-(color:--doc-line) bg-(color:--doc-inset) p-6 sm:p-8">
+      <h2 className="text-[11px] font-medium uppercase tracking-[0.35em] text-(color:--doc-muted)">{ui[lang].toc}</h2>
       <ol className="mt-5 grid gap-x-8 gap-y-2 text-[15px] sm:grid-cols-2">
         {tocSections.map((t) => (
           <li key={t.id}>
-            <a href={`#${t.id}`} className="text-white/75 transition-colors hover:text-white">
+            <a href={`#${t.id}`} className="text-(color:--doc-text) transition-colors hover:text-(color:--doc-fg)">
               {t.title}
             </a>
           </li>
@@ -216,7 +216,7 @@ export function LegalBody({ doc, accent, contactEmail }: { doc: LegalDoc; accent
   return (
     <>
       {intro.map((p, i) => (
-        <p key={i} className={`text-base leading-relaxed text-white/75 md:text-[17px] ${i ? "mt-4" : ""}`}>
+        <p key={i} className={`text-base leading-relaxed text-(color:--doc-text) md:text-[17px] ${i ? "mt-4" : ""}`}>
           <Rich text={p} />
         </p>
       ))}
@@ -232,7 +232,7 @@ export function LegalBody({ doc, accent, contactEmail }: { doc: LegalDoc; accent
       </div>
 
       {!hasContactSection && (
-        <p className="mt-12 border-t border-white/[0.08] pt-8 text-[15px] text-white/60">
+        <p className="mt-12 border-t border-(color:--doc-line) pt-8 text-[15px] text-(color:--doc-soft)">
           {ui[lang].question}{" "}
           <a href={`mailto:${contactEmail}`} className={linkClass}>
             {contactEmail}

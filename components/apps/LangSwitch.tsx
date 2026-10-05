@@ -19,7 +19,7 @@ export function LangToggle({ current }: { current: Lang }) {
     <div
       role="group"
       aria-label={current === "en" ? "Language" : "Språk"}
-      className="mb-6 flex w-fit rounded-full border border-white/15 bg-black/40 p-1 text-xs font-semibold sm:absolute sm:right-8 sm:top-8 sm:mb-0"
+      className="mb-6 flex w-fit rounded-full border border-(color:--doc-line-strong) bg-(color:--doc-chip) p-1 text-xs font-semibold sm:absolute sm:right-8 sm:top-8 sm:mb-0"
     >
       {(["no", "en"] as Lang[]).map((l) => (
         <button
@@ -37,7 +37,7 @@ export function LangToggle({ current }: { current: Lang }) {
             }
           }}
           className={`rounded-full px-3.5 py-1.5 tracking-wider transition-colors ${
-            l === current ? "bg-white text-black" : "text-white/60 hover:text-white"
+            l === current ? "bg-(color:--doc-active-bg) text-(color:--doc-active-fg)" : "text-(color:--doc-soft) hover:text-(color:--doc-fg)"
           }`}
         >
           {l.toUpperCase()}
