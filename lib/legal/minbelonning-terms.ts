@@ -184,7 +184,7 @@ export const minBelonningTerms: LegalDoc = {
         {
           type: "ul",
           items: [
-            "Min Belønning+ kjøpes gjennom App Store eller Google Play og kan betales månedlig eller årlig. Prisen vises i appen og i butikken før du kjøper, og er inkludert merverdiavgift. Per i dag er prisen 49 kr i måneden eller 399 kr i året.",
+            "Min Belønning+ kjøpes gjennom App Store eller Google Play og kan betales månedlig eller årlig. Prisen vises i appen og i butikken før du kjøper, og er inkludert merverdiavgift. Per i dag er prisen 19 kr i måneden eller 149 kr i året.",
             "Betalingen trekkes fra kontoen din i App Store eller Google Play når du bekrefter kjøpet.",
             "Abonnementet fornyes automatisk for en ny periode til samme pris, med mindre du sier det opp senest 24 timer før perioden er slutt.",
             "Du sier opp i innstillingene for App Store eller Google Play. Å slette appen eller kontoen sier ikke opp abonnementet.",

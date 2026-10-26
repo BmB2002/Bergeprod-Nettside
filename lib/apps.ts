@@ -368,7 +368,7 @@ export const apps: App[] = [
             "Flere sparemål per barn og flere foresatte i familien",
             "Familieoversikt og hele historikken",
           ],
-          note: "Min Belønning+ koster 49 kr i måneden eller 399 kr i året. Abonnementet fornyes automatisk og trekkes fra kontoen din i App Store. Du kan si det opp når som helst i innstillingene for App Store, senest 24 timer før neste periode starter.",
+          note: "Min Belønning+ koster 19 kr i måneden eller 149 kr i året. Abonnementet fornyes automatisk og trekkes fra kontoen din i App Store. Du kan si det opp når som helst i innstillingene for App Store, senest 24 timer før neste periode starter.",
         },
       ],
     },
@@ -403,7 +403,7 @@ export const apps: App[] = [
         },
         {
           q: "Hva får jeg med Min Belønning+?",
-          a: "Flere aktive og lagrede oppgaver, faste oppgaver som gjentar seg, bildebevis, sjekklister, flere sparemål og foresatte, og hele historikken. Det koster 49 kr i måneden eller 399 kr i året.",
+          a: "Flere aktive og lagrede oppgaver, faste oppgaver som gjentar seg, bildebevis, sjekklister, flere sparemål og foresatte, og hele historikken. Det koster 19 kr i måneden eller 149 kr i året.",
         },
         {
           q: "Hvordan sier jeg opp Min Belønning+?",
